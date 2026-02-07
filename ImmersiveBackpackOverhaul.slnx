@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ImmersiveBackpackOverhaul/ImmersiveBackpackOverhaul/ImmersiveBackpackOverhaul.csproj" />
+  <Project Path="ImmersiveBackpackOverhaul/ZZCakeBuild/CakeBuild.csproj" />
+</Solution>

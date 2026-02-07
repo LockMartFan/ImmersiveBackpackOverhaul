@@ -1,21 +1,17 @@
 ﻿#nullable enable
 
-using System.Collections.Generic;
 using HarmonyLib;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.Server;
+using Vintagestory.API.Client;
 
 namespace ImmersiveBackpacks
 {
     /// <summary>
-    /// ONE-file Harmony gate (strict).
-    ///
-    /// Enforces tier rules at the slot acceptance layer:
-    ///  - ItemSlot.CanHold(...)
-    ///  - ItemSlot.CanTakeFrom(...)
-    ///
-    /// This catches shift-click, RMB pickup, auto-pickup, drag-drop, etc.
+    /// Harmony loader. Runs on both client and server.
     /// </summary>
-    public sealed class BagTierHarmonyGate : ModSystem
+    public class BagTierHarmonyGate : ModSystem
     {
         private Harmony? harmony;
         private const string HarmonyId = "immersivebackpacks.bagtier.gate";
@@ -33,181 +29,117 @@ namespace ImmersiveBackpacks
         }
     }
 
-    // ============================================================
-    //  A) HARD GATE: ItemSlot.CanHold
-    // ============================================================
-
+    /// <summary>
+    /// HARD GATE: blocks invalid insertion into ItemSlotBackpack equip slots on both client and server.
+    /// Also enforces: pouch slots (0,1) require waist slot occupied.
+    /// </summary>
     [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.CanHold))]
     public static class Patch_ItemSlot_CanHold
     {
+        private static readonly int[] RequiredTierByEquipIndex = { 1, 1, 2, 3 };
+
         public static bool Prefix(ItemSlot __instance, ItemSlot sourceSlot, ref bool __result)
         {
-            if (!IsTargetedBackpackEquipSlot(__instance, out var invBase, out int slotId, out int requiredTier))
-                return true;
+            if (__instance is not ItemSlotBackpack) return true;
+            if (__instance.Inventory is not InventoryBase invBase) return true;
 
+            int slotId = invBase.GetSlotId(__instance);
+            if (slotId < 0) return true;
+
+            if (!TryGetEquipIndexForSlot(invBase, slotId, out int equipIndex))
+            {
+                return true;
+            }
+
+            // Waist gating for pouch slots:
+            if ((equipIndex == 0 || equipIndex == 1) && !IsWaistOccupiedForThisBackpackInventory(invBase))
+            {
+                __result = false;
+                return false;
+            }
+
+            if (equipIndex < 0 || equipIndex >= RequiredTierByEquipIndex.Length)
+            {
+                __result = false;
+                return false;
+            }
+
+            int requiredTier = RequiredTierByEquipIndex[equipIndex];
             int actualTier = TierUtil.GetTierStrictOrZero(sourceSlot?.Itemstack);
+
+            // STRICT: missing/invalid tag => reject
             if (actualTier == 0 || actualTier != requiredTier)
             {
                 __result = false;
                 return false;
             }
 
-            return true; // tier ok -> allow vanilla checks too
+            return true;
         }
 
-        private static bool IsTargetedBackpackEquipSlot(ItemSlot inst, out InventoryBase? invBase, out int slotId, out int requiredTier)
+        private static bool TryGetEquipIndexForSlot(InventoryBase invBase, int targetSlotId, out int equipIndex)
         {
-            invBase = null;
-            slotId = -1;
-            requiredTier = 0;
+            equipIndex = -1;
+            int found = 0;
 
-            if (inst is not ItemSlotBackpack) return false;
-
-            invBase = inst.Inventory as InventoryBase;
-            if (invBase == null) return false;
-
-            slotId = FindSlotId(invBase, inst);
-            if (slotId < 0) return false;
-
-            return BagTierRegistry.TryGetRequiredTier(invBase, slotId, out requiredTier);
-        }
-
-        private static int FindSlotId(InventoryBase inv, ItemSlot target)
-        {
-            for (int i = 0; i < inv.Count; i++)
+            for (int id = 0; id < invBase.Count; id++)
             {
-                if (ReferenceEquals(inv[i], target)) return i;
-            }
-            return -1;
-        }
-    }
-
-    // ============================================================
-    //  B) HARD GATE: ItemSlot.CanTakeFrom
-    // ============================================================
-
-    [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.CanTakeFrom))]
-    public static class Patch_ItemSlot_CanTakeFrom
-    {
-        public static bool Prefix(ItemSlot __instance, ItemSlot sourceSlot, EnumMergePriority priority, ref bool __result)
-        {
-            if (!IsTargetedBackpackEquipSlot(__instance, out var invBase, out int slotId, out int requiredTier))
-                return true;
-
-            int actualTier = TierUtil.GetTierStrictOrZero(sourceSlot?.Itemstack);
-            if (actualTier == 0 || actualTier != requiredTier)
-            {
-                __result = false;
-                return false;
-            }
-
-            return true; // tier ok -> allow vanilla checks too
-        }
-
-        private static bool IsTargetedBackpackEquipSlot(ItemSlot inst, out InventoryBase? invBase, out int slotId, out int requiredTier)
-        {
-            invBase = null;
-            slotId = -1;
-            requiredTier = 0;
-
-            if (inst is not ItemSlotBackpack) return false;
-
-            invBase = inst.Inventory as InventoryBase;
-            if (invBase == null) return false;
-
-            slotId = FindSlotId(invBase, inst);
-            if (slotId < 0) return false;
-
-            return BagTierRegistry.TryGetRequiredTier(invBase, slotId, out requiredTier);
-        }
-
-        private static int FindSlotId(InventoryBase inv, ItemSlot target)
-        {
-            for (int i = 0; i < inv.Count; i++)
-            {
-                if (ReferenceEquals(inv[i], target)) return i;
-            }
-            return -1;
-        }
-    }
-
-    // ============================================================
-    //  Shared Registry + Tier Util (strict)
-    // ============================================================
-
-    /// <summary>
-    /// Server fills this on PlayerNowPlaying (via BackpackSlotBouncerSystem).
-    /// Map: backpack InventoryID -> (slotId -> requiredTier)
-    /// </summary>
-    public static class BagTierRegistry
-    {
-        private static readonly Dictionary<string, Dictionary<int, int>> invIdToSlotTier = new();
-
-        public static void RegisterBackpackEquipSlots(InventoryBase backpackInv, int[] requiredTierByEquipIndex)
-        {
-            string invId = backpackInv.InventoryID;
-            var map = new Dictionary<int, int>(4);
-
-            int equipIndex = 0;
-
-            for (int slotId = 0; slotId < backpackInv.Count; slotId++)
-            {
-                ItemSlot slot = backpackInv[slotId];
-                if (slot is ItemSlotBackpack)
+                if (invBase[id] is ItemSlotBackpack)
                 {
-                    if (equipIndex < requiredTierByEquipIndex.Length)
+                    if (id == targetSlotId)
                     {
-                        map[slotId] = requiredTierByEquipIndex[equipIndex];
+                        equipIndex = found;
+                        return true;
                     }
-                    equipIndex++;
+                    found++;
                 }
             }
 
-            lock (invIdToSlotTier)
-            {
-                invIdToSlotTier[invId] = map;
-            }
+            return false;
         }
 
-        public static void UnregisterInventory(string inventoryId)
+        private static bool IsWaistOccupiedForThisBackpackInventory(InventoryBase backpackInv)
         {
-            lock (invIdToSlotTier)
-            {
-                invIdToSlotTier.Remove(inventoryId);
-            }
-        }
+            // backpackInv.InventoryID typically looks like "backpack-<playeruid>"
+            string invId = backpackInv.InventoryID ?? "";
+            const string prefix = "backpack-";
+            string? uid = invId.StartsWith(prefix) ? invId.Substring(prefix.Length) : null;
 
-        public static bool TryGetRequiredTier(InventoryBase inv, int slotId, out int requiredTier)
-        {
-            requiredTier = 0;
-
-            Dictionary<int, int>? map;
-            lock (invIdToSlotTier)
+            // Client: only the local player matters.
+            if (backpackInv.Api is ICoreClientAPI capi)
             {
-                if (!invIdToSlotTier.TryGetValue(inv.InventoryID, out map)) return false;
+                var plr = capi.World.Player;
+                return IsWaistOccupied(plr?.InventoryManager);
             }
 
-            return map.TryGetValue(slotId, out requiredTier);
+            // Server: resolve by UID (returns IPlayer, not IServerPlayer)
+            if (backpackInv.Api is ICoreServerAPI sapi)
+            {
+                if (uid == null) return true; // fail-open
+
+                IPlayer? plr = sapi.World.PlayerByUid(uid);
+                return IsWaistOccupied(plr?.InventoryManager);
+            }
+
+            return true; // fail-open
         }
-    }
 
-    public static class TierUtil
-    {
-        /// <summary>
-        /// STRICT:
-        ///  - requires Collectible.Attributes["iboBagTier"] to exist and be 1..3
-        ///  - otherwise returns 0 (invalid / not supported)
-        /// </summary>
-        public static int GetTierStrictOrZero(ItemStack? stack)
+        private static bool IsWaistOccupied(IPlayerInventoryManager? invMan)
         {
-            if (stack?.Collectible == null) return 0;
+            if (invMan == null) return true;
 
-            var attrs = stack.Collectible.Attributes;
-            if (attrs == null) return 0;
-            if (!attrs.KeyExists("iboBagTier")) return 0;
+            IInventory? charInv = invMan.GetOwnInventory(GlobalConstants.characterInvClassName);
+            if (charInv == null) return true;
 
-            int t = attrs["iboBagTier"].AsInt(0);
-            return (t >= 1 && t <= 3) ? t : 0;
+            foreach (var slot in charInv)
+            {
+                if (slot is ItemSlotCharacter ch && ch.Type == EnumCharacterDressType.Waist)
+                {
+                    return !ch.Empty;
+                }
+            }
+
+            return true; // fail-open if waist slot not found
         }
     }
 }

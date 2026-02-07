@@ -8,20 +8,17 @@ using Vintagestory.API.Config;
 
 namespace ImmersiveBackpacks
 {
-    /// <summary>
-    /// Server-authoritative "bouncer".
-    /// If anything invalid ends up in the 4 backpack equip slots, it is removed and safely returned.
-    /// </summary>
     public class BackpackSlotBouncerSystem : ModSystem
     {
         private ICoreServerAPI sapi = null!;
 
-        // Policy: [Pouch, Pouch, Satchel, Backpack]
-        private static readonly int[] RequiredTierByEquipIndex = { 1, 1, 2, 3 };
+        // Final desired equip tiers: [Pouch, Pouch, Satchel, Backpack]
+        private readonly int[] requiredTierByEquipIndex = { 1, 1, 2, 3 };
 
         private readonly Dictionary<string, List<ItemSlot>> equipSlotsByPlayerUid = new();
         private readonly HashSet<string> enforcingPlayerUids = new();
-        private readonly HashSet<string> subscribedPlayerUids = new();
+        private readonly HashSet<string> subscribedBackpackInvUids = new();
+        private readonly HashSet<string> subscribedCharacterInvUids = new();
 
         public override void StartServerSide(ICoreServerAPI api)
         {
@@ -35,33 +32,74 @@ namespace ImmersiveBackpacks
         {
             equipSlotsByPlayerUid.Remove(player.PlayerUID);
             enforcingPlayerUids.Remove(player.PlayerUID);
-            subscribedPlayerUids.Remove(player.PlayerUID);
+
+            subscribedBackpackInvUids.Remove(player.PlayerUID);
+            subscribedCharacterInvUids.Remove(player.PlayerUID);
+
+            // Unregister Harmony map entry for this player's backpack inventory (if present)
+            IInventory? backpackInv = player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName);
+            if (backpackInv is InventoryBase invBase)
+            {
+                BagTierEquipSlotRegistry.UnregisterInventory(invBase.InventoryID);
+            }
         }
 
         private void OnPlayerNowPlaying(IServerPlayer player)
         {
             IInventory? backpackInv = player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName);
-            if (backpackInv is not InventoryBase invBase)
+            if (backpackInv is not InventoryBase backpackInvBase)
             {
-                sapi.Logger.Warning("[ImmersiveBackpacks] Backpack inventory missing or not InventoryBase; cannot enforce.");
+                sapi.Logger.Warning("[ImmersiveBackpacks] Backpack inventory missing or not InventoryBase; cannot enforce bag slots.");
                 return;
             }
 
-            equipSlotsByPlayerUid[player.PlayerUID] = FindEquipSlots(invBase);
+            // Register equip slot ids for Harmony gate (server authoritative)
+            BagTierEquipSlotRegistry.RegisterBackpackEquipSlots(backpackInvBase, requiredTierByEquipIndex);
 
-            if (subscribedPlayerUids.Add(player.PlayerUID))
+            // Cache equip slots (object refs) for bouncer safety net
+            equipSlotsByPlayerUid[player.PlayerUID] = FindEquipSlots(backpackInvBase);
+
+            // Subscribe once to backpack inventory slot changes
+            if (subscribedBackpackInvUids.Add(player.PlayerUID))
             {
-                invBase.SlotModified += slotId =>
+                backpackInvBase.SlotModified += slotId =>
                 {
                     if (enforcingPlayerUids.Contains(player.PlayerUID)) return;
-                    if (slotId < 0 || slotId >= invBase.Count) return;
 
-                    ItemSlot changedSlot = invBase[slotId];
+                    ItemSlot changedSlot = backpackInvBase[slotId];
+                    if (changedSlot == null) return;
+
                     EnforceIfEquipSlot(player, changedSlot);
                 };
             }
 
+            // Subscribe once to character inventory slot changes (waist gating cleanup)
+            IInventory? charInv = player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
+            if (charInv is InventoryBase charInvBase)
+            {
+                if (subscribedCharacterInvUids.Add(player.PlayerUID))
+                {
+                    charInvBase.SlotModified += _ =>
+                    {
+                        if (enforcingPlayerUids.Contains(player.PlayerUID)) return;
+
+                        // If waist is empty now, force-eject pouch slots once (0 and 1)
+                        if (!TierUtil.HasWaistEquipped(player))
+                        {
+                            EjectPouchSlotsIfAny(player);
+                        }
+                    };
+                }
+            }
+
+            // Clean invalid pre-existing states once (e.g., from older saves/mod changes)
             EnforceAllEquipSlots(player);
+
+            // Also apply waist gating cleanup once on join (in case save already has pouches equipped)
+            if (!TierUtil.HasWaistEquipped(player))
+            {
+                EjectPouchSlotsIfAny(player);
+            }
         }
 
         private List<ItemSlot> FindEquipSlots(InventoryBase backpackInv)
@@ -75,7 +113,7 @@ namespace ImmersiveBackpacks
 
             if (list.Count != 4)
             {
-                sapi.Logger.Warning($"[ImmersiveBackpacks] Expected 4 backpack equip slots, found {list.Count}.");
+                sapi.Logger.Warning($"[ImmersiveBackpacks] Expected 4 ItemSlotBackpack equip slots, found {list.Count}.");
             }
 
             return list;
@@ -109,26 +147,43 @@ namespace ImmersiveBackpacks
         {
             if (equipSlot.Empty) return;
 
-            if (equipIndex < 0 || equipIndex >= RequiredTierByEquipIndex.Length)
+            if (equipIndex < 0 || equipIndex >= requiredTierByEquipIndex.Length)
             {
                 Eject(player, equipSlot, $"Equip index {equipIndex} has no rule.");
                 return;
             }
 
-            int requiredTier = RequiredTierByEquipIndex[equipIndex];
+            int requiredTier = requiredTierByEquipIndex[equipIndex];
 
-            int actualTier = TierUtil.GetTierStrictOrZero(equipSlot.Itemstack);
+            ItemStack? stack = equipSlot.Itemstack;
+            int actualTier = TierUtil.GetTierStrictOrZero(stack);
 
-            // STRICT: missing/invalid tag => invalid
+            // Strict: missing tag => invalid (forces you to patch)
             if (actualTier == 0)
             {
-                Eject(player, equipSlot, "Missing/invalid attributes.iboBagTier tag (compat patch required).");
+                Eject(player, equipSlot, "Missing attributes.iboBagTier tag (compat patch required).");
                 return;
             }
 
             if (actualTier != requiredTier)
             {
                 Eject(player, equipSlot, $"Tier {actualTier} not allowed here (requires Tier {requiredTier}).");
+            }
+        }
+
+        private void EjectPouchSlotsIfAny(IServerPlayer player)
+        {
+            if (!equipSlotsByPlayerUid.TryGetValue(player.PlayerUID, out var equipSlots)) return;
+            if (equipSlots.Count < 2) return;
+
+            // Only slots 0 and 1 are pouch slots
+            for (int equipIndex = 0; equipIndex <= 1; equipIndex++)
+            {
+                ItemSlot slot = equipSlots[equipIndex];
+                if (!slot.Empty)
+                {
+                    Eject(player, slot, "Pouch slots require waist slot occupied.");
+                }
             }
         }
 
@@ -146,6 +201,7 @@ namespace ImmersiveBackpacks
 
                 if (badStack != null)
                 {
+                    // Safety net return: avoid re-equip into ItemSlotBackpack
                     bool placed = TryGiveToNonEquipPlayerSlots(player, badStack);
                     if (!placed)
                     {
@@ -166,56 +222,44 @@ namespace ImmersiveBackpacks
             var invMan = player.InventoryManager;
 
             IInventory? hotbar = invMan.GetOwnInventory(GlobalConstants.hotBarInvClassName);
-            TryPutIntoInventory(hotbar, stack);
+            TryPutIntoInventorySkippingEquip(hotbar, stack);
             if (stack.StackSize <= 0) return true;
 
             IInventory? character = invMan.GetOwnInventory(GlobalConstants.characterInvClassName);
-            TryPutIntoInventory(character, stack);
+            TryPutIntoInventorySkippingEquip(character, stack);
             if (stack.StackSize <= 0) return true;
 
             return false;
         }
 
-        private void TryPutIntoInventory(IInventory? inv, ItemStack stack)
+        private void TryPutIntoInventorySkippingEquip(IInventory? inv, ItemStack stack)
         {
             if (inv == null) return;
             if (stack.StackSize <= 0) return;
 
-            var srcInv = new InventoryGeneric(1, "ibo-src", sapi);
-            ItemSlot src = srcInv[0];
-            src.Itemstack = stack;
+            var src = new DummySourceSlot(stack);
 
-            for (int i = 0; i < inv.Count && src.Itemstack != null && src.Itemstack.StackSize > 0; i++)
+            for (int i = 0; i < inv.Count; i++)
             {
                 ItemSlot target = inv[i];
+                if (target == null) continue;
 
-                // Never allow re-equip into backpack equip slots
+                // Never re-equip into backpack equip slots
                 if (target is ItemSlotBackpack) continue;
 
                 if (!target.CanHold(src)) continue;
 
-                src.TryPutInto(sapi.World, target, src.StackSize);
+                int moved = src.TryPutInto(sapi.World, target, src.StackSize);
+                if (moved > 0 && src.StackSize <= 0) return;
             }
-
-            stack.StackSize = src.Itemstack?.StackSize ?? 0;
         }
-    }
 
-    /// <summary>
-    /// One-and-only TierUtil. Do NOT duplicate this in other files.
-    /// </summary>
-    public static class TierUtil
-    {
-        public static int GetTierStrictOrZero(ItemStack? stack)
+        private sealed class DummySourceSlot : ItemSlot
         {
-            if (stack?.Collectible == null) return 0;
-
-            var attrs = stack.Collectible.Attributes;
-            if (attrs == null) return 0;
-            if (!attrs.KeyExists("iboBagTier")) return 0;
-
-            int t = attrs["iboBagTier"].AsInt(0);
-            return (t >= 1 && t <= 3) ? t : 0;
+            public DummySourceSlot(ItemStack stack) : base(null!)
+            {
+                Itemstack = stack;
+            }
         }
     }
 }

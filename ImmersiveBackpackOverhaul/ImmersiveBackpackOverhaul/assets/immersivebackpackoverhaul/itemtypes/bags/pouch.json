@@ -1,0 +1,27 @@
+{
+  code: "pouch",
+  maxstacksize: 1,
+
+  // This is the "seed item" model used by vanilla seeds.json,
+  // but we MUST point to the game domain.
+  shape: { base: "game:item/resource/seeds/seedbag" },
+
+  // Same rule for textures: point to game domain.
+  // Pick any seed texture you like. Flax is fine for testing.
+  textures: {
+    seed: { base: "game:item/resource/seeds/flax" }
+  },
+
+  behaviors: [
+    { name: "HeldBag" }
+  ],
+
+  // This is what makes it a portable container in vanilla terms (like linensack.json)
+  attributes: {
+    backpack: { quantitySlots: 2 },
+    iboBagTier: 1
+  },
+
+  storageFlags: 2,
+  creativeinventory: { general: ["*"], items: ["*"] }
+}

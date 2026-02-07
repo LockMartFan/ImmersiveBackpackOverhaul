@@ -1,0 +1,30 @@
+[
+  {
+    "file": "ithaniabackpacks:itemtypes/wearable/bag/legpouch.json",
+    "op": "replace",
+    "path": "/attributes/backpack/quantitySlots",
+    "value": 20,
+    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+  },
+  {
+    "file": "ithaniabackpacks:itemtypes/wearable/bag/leather-backpack.json",
+    "op": "replace",
+    "path": "/attributes/backpack/quantitySlots",
+    "value": 30,
+    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+  },
+  {
+    "file": "ithaniabackpacks:itemtypes/wearable/bag/hunter-backpack.json",
+    "op": "replace",
+    "path": "/attributes/backpack/quantitySlots",
+    "value": 22,
+    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+  },
+  {
+    "file": "ithaniabackpacks:itemtypes/wearable/bag/backpack.json",
+    "op": "replace",
+    "path": "/attributes/backpack/quantitySlots",
+    "value": 36,
+    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+  }
+]

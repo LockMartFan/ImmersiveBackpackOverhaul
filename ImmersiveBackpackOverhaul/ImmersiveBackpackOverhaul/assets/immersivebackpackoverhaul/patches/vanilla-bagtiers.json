@@ -1,0 +1,11 @@
+[
+  { "file": "game:itemtypes/wearable/bag/backpack.json",       "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+  { "file": "game:itemtypes/wearable/bag/hunterbackpack.json", "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+  { "file": "game:itemtypes/wearable/bag/glider.json",         "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+
+  { "file": "game:itemtypes/wearable/bag/handbasket.json",     "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/linensack.json",      "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/miningbag.json",      "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/miningbagsturdy.json","op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/quiver.json",         "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } }
+]

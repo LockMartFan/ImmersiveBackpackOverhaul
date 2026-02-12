@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -8,8 +9,8 @@ namespace ImmersiveBackpacks
 {
     /// <summary>
     /// Client-only visuals:
-    /// - Pouch equip slots (equipIndex 0 and 1) show the waist icon
-    /// - Pouch equip slots gray out when waist is empty (DrawUnavailable = true)
+    /// - Pouch equip slots (equipIndex 0 and 1) show the waist-slot background icon as a clear "pouch" hint.
+    /// - No locking/gray-out behavior: waist gating was removed.
     ///
     /// Event-driven: no ticking.
     /// Safe against recursion: no MarkDirty(), guarded refresh, deferred execution.
@@ -18,6 +19,12 @@ namespace ImmersiveBackpacks
     {
         private ICoreClientAPI capi = null!;
         private bool subscribed;
+
+        private InventoryBase? subscribedCharInv;
+        private InventoryBase? subscribedBackpackInv;
+
+        private Action<int>? charSlotHandler;
+        private Action<int>? backpackSlotHandler;
 
         // Guards against recursive refresh
         private bool inRefresh;
@@ -31,28 +38,90 @@ namespace ImmersiveBackpacks
 
             capi.Event.LevelFinalize += () =>
             {
+                // In case inventories were recreated (reconnect, relog, world switch),
+                // rebind event handlers safely.
                 SubscribeOnce();
                 QueueRefresh();
             };
         }
 
+        public override void Dispose()
+        {
+            UnsubscribeSafe();
+            subscribed = false;
+
+            subscribedCharInv = null;
+            subscribedBackpackInv = null;
+            charSlotHandler = null;
+            backpackSlotHandler = null;
+
+            base.Dispose();
+        }
+
         private void SubscribeOnce()
         {
-            if (subscribed) return;
-            subscribed = true;
-
             var player = capi.World.Player;
             if (player?.InventoryManager == null) return;
 
-            if (player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName) is InventoryBase charInv)
+            var charInv = player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName) as InventoryBase;
+            var backpackInv = player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName) as InventoryBase;
+
+            // If we've already subscribed but inventories changed, rebind.
+            if (subscribed)
             {
-                charInv.SlotModified += _ => QueueRefresh();
+                if (!ReferenceEquals(charInv, subscribedCharInv) || !ReferenceEquals(backpackInv, subscribedBackpackInv))
+                {
+                    UnsubscribeSafe();
+                    subscribed = false;
+                }
+                else
+                {
+                    return;
+                }
             }
 
-            if (player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName) is InventoryBase backpackInv)
+            subscribed = true;
+
+            subscribedCharInv = charInv;
+            subscribedBackpackInv = backpackInv;
+
+            // Store delegate refs so we can unsubscribe cleanly (prevents handler accumulation).
+            charSlotHandler ??= _ => QueueRefresh();
+            backpackSlotHandler ??= _ => QueueRefresh();
+
+            if (subscribedCharInv != null)
             {
-                backpackInv.SlotModified += _ => QueueRefresh();
+                subscribedCharInv.SlotModified += charSlotHandler;
             }
+
+            if (subscribedBackpackInv != null)
+            {
+                subscribedBackpackInv.SlotModified += backpackSlotHandler;
+            }
+        }
+
+        private void UnsubscribeSafe()
+        {
+            try
+            {
+                if (subscribedCharInv != null && charSlotHandler != null)
+                {
+                    subscribedCharInv.SlotModified -= charSlotHandler;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (subscribedBackpackInv != null && backpackSlotHandler != null)
+                {
+                    subscribedBackpackInv.SlotModified -= backpackSlotHandler;
+                }
+            }
+            catch { }
+
+            subscribedCharInv = null;
+            subscribedBackpackInv = null;
         }
 
         private void QueueRefresh()
@@ -82,15 +151,14 @@ namespace ImmersiveBackpacks
                 IInventory? backpackInv = player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName);
                 if (charInv == null || backpackInv == null) return;
 
-                // Determine waist status + grab waist background icon
-                bool waistOccupied = true;
+                // Grab the waist slot background icon (used as a clear "pouch" hint),
+                // but DO NOT gray out or lock anything anymore. Waist gating was removed.
                 string? waistIcon = null;
 
                 foreach (var slot in charInv)
                 {
                     if (slot is ItemSlotCharacter ch && ch.Type == EnumCharacterDressType.Waist)
                     {
-                        waistOccupied = !ch.Empty;
                         waistIcon = ch.BackgroundIcon;
                         break;
                     }
@@ -105,15 +173,13 @@ namespace ImmersiveBackpacks
 
                     if (equipIndex == 0 || equipIndex == 1)
                     {
-                        bool wantUnavailable = !waistOccupied;
-
-                        // Only write if changed to avoid triggering extra internal updates
-                        if (slot.DrawUnavailable != wantUnavailable)
+                        // Always available now
+                        if (slot.DrawUnavailable)
                         {
-                            slot.DrawUnavailable = wantUnavailable;
+                            slot.DrawUnavailable = false;
                         }
 
-                        // Only change icon if we have an icon and it differs
+                        // Keep the pouch hint icon if available
                         if (!string.IsNullOrEmpty(waistIcon) && slot.BackgroundIcon != waistIcon)
                         {
                             slot.BackgroundIcon = waistIcon!;

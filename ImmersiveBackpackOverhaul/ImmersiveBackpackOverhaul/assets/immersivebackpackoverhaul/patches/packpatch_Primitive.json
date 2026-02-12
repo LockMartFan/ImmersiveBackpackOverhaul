@@ -1,0 +1,255 @@
+[
+
+  /* backrack-copper: 1 -> 1 */
+  {
+    "file": "backracks:itemtypes/backrack-copper.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.65, "iboBaseWeightKg": 1.60 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/backrack-copper.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 1,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/backrack-copper.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1600,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* backrack-tinbronze: 1 -> 1 */
+  {
+    "file": "backracks:itemtypes/backrack-tinbronze.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.62, "iboBaseWeightKg": 1.80 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/backrack-tinbronze.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 1,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/backrack-tinbronze.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1800,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* basketbackrack-normal: 5 -> 13 */
+  {
+    "file": "backracks:itemtypes/basketbackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.88, "iboBaseWeightKg": 1.20 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/basketbackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 13,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/basketbackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 650,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* basketbackrackhunter-normal: 9 -> 23 */
+  {
+    "file": "backracks:itemtypes/basketbackrackhunter-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.84, "iboBaseWeightKg": 1.45 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/basketbackrackhunter-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 23,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/basketbackrackhunter-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 900,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* claybackrack-normal: 9 -> 23 (but heavy + bad reduction) */
+  {
+    "file": "backracks:itemtypes/claybackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.93, "iboBaseWeightKg": 2.70 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/claybackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 23,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/claybackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 550,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* foragerbackrack-normal: 9 -> 23 */
+  {
+    "file": "backracks:itemtypes/foragerbackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.86, "iboBaseWeightKg": 1.55 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/foragerbackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 23,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/foragerbackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 900,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* shelfbackrack-normal: 8 -> 14 */
+  {
+    "file": "backracks:itemtypes/shelfbackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.88, "iboBaseWeightKg": 1.95 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/shelfbackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 14,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/shelfbackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 950,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* firewoodbackrack-normal: 6 -> 15 */
+  {
+    "file": "backracks:itemtypes/firewoodbackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.95, "iboBaseWeightKg": 2.80 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/firewoodbackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 15,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/firewoodbackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1000,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* logbackrack-normal: 6 -> 15 */
+  {
+    "file": "backracks:itemtypes/logbackrack-normal.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.95, "iboBaseWeightKg": 2.80 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/logbackrack-normal.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 15,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/logbackrack-normal.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1000,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* cratebackrack-copper: 12 -> 30 */
+  {
+    "file": "backracks:itemtypes/cratebackrack-copper.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.94, "iboBaseWeightKg": 4.80 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/cratebackrack-copper.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 30,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/cratebackrack-copper.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1400,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+
+  /* chestbackrack-copper: 12 -> 16 (worst reduction, heavy) */
+  {
+    "file": "backracks:itemtypes/chestbackrack-copper.json",
+    "op": "addMerge",
+    "path": "/attributes",
+    "value": { "iboBagTier": 3, "iboBagEffectiveness": 0.97, "iboBaseWeightKg": 6.50 },
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/chestbackrack-copper.json",
+    "op": "replace",
+    "path": "/attributes/backpackByType/*-normal/quantitySlots",
+    "value": 16,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  },
+  {
+    "file": "backracks:itemtypes/chestbackrack-copper.json",
+    "op": "add",
+    "path": "/durability",
+    "value": 1500,
+    "dependsOn": [ { "modid": "primitivebackpacks" } ]
+  }
+]

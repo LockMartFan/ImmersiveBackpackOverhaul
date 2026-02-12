@@ -2,10 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
-using Vintagestory.API.Server;
 
 namespace ImmersiveBackpacks
 {
@@ -24,73 +24,125 @@ namespace ImmersiveBackpacks
         {
             harmony?.UnpatchAll(HarmonyId);
             harmony = null;
+
+            BagTierEquipSlotRegistry.ClearAll();
         }
     }
 
     /// <summary>
-    /// Registry: backpack InventoryID -> (slotId -> rule).
-    /// Filled server-side on PlayerNowPlaying in BackpackSlotBouncerSystem.
-    /// Harmony uses it to know which slotIds correspond to equipIndex 0..3 and what tier they require.
+    /// Self-sufficient equip-slot rule registry.
+    /// Built lazily from the inventory itself (client+server) and then cached O(1).
     /// </summary>
     public static class BagTierEquipSlotRegistry
     {
+        // Final desired equip tiers: [Pouch, Pouch, Satchel, Backpack]
+        private static readonly int[] RequiredTierByEquipIndex = { 1, 1, 2, 3 };
+
         public sealed class Rule
         {
             public int EquipIndex;
             public int RequiredTier;
         }
 
-        private static readonly Dictionary<string, Dictionary<int, Rule>> invIdToSlotRules = new();
-
-        public static void RegisterBackpackEquipSlots(InventoryBase backpackInv, int[] requiredTierByEquipIndex)
+        private sealed class ReferenceEqualityComparer<T> : IEqualityComparer<T> where T : class
         {
-            string invId = backpackInv.InventoryID;
+            public static readonly ReferenceEqualityComparer<T> Instance = new();
+            public bool Equals(T? x, T? y) => ReferenceEquals(x, y);
+            public int GetHashCode(T obj) => RuntimeHelpers.GetHashCode(obj);
+        }
 
-            var map = new Dictionary<int, Rule>(4);
-            int equipIndex = 0;
+        private sealed class SlotMaps
+        {
+            public readonly Dictionary<ItemSlot, Rule> BySlotRef;
+            public readonly int BackpackCountSnapshot;
 
-            for (int slotId = 0; slotId < backpackInv.Count; slotId++)
+            public SlotMaps(Dictionary<ItemSlot, Rule> bySlotRef, int backpackCountSnapshot)
             {
-                ItemSlot slot = backpackInv[slotId];
-                if (slot is ItemSlotBackpack)
-                {
-                    if (equipIndex < requiredTierByEquipIndex.Length)
-                    {
-                        map[slotId] = new Rule
-                        {
-                            EquipIndex = equipIndex,
-                            RequiredTier = requiredTierByEquipIndex[equipIndex]
-                        };
-                    }
-                    equipIndex++;
-                }
+                BySlotRef = bySlotRef;
+                BackpackCountSnapshot = backpackCountSnapshot;
             }
+        }
 
-            lock (invIdToSlotRules)
-            {
-                invIdToSlotRules[invId] = map;
-            }
+        // InventoryID -> cached maps (inventoryID is stable; client has it too)
+        private static readonly Dictionary<string, SlotMaps> invIdToMaps = new(StringComparer.Ordinal);
+
+        public static void ClearAll()
+        {
+            lock (invIdToMaps) invIdToMaps.Clear();
         }
 
         public static void UnregisterInventory(string inventoryId)
         {
-            lock (invIdToSlotRules)
-            {
-                invIdToSlotRules.Remove(inventoryId);
-            }
+            lock (invIdToMaps) invIdToMaps.Remove(inventoryId);
         }
 
-        public static bool TryGetRule(InventoryBase inv, int slotId, out Rule rule)
+        public static bool TryGetRule(ItemSlot slot, out Rule rule)
         {
             rule = null!;
 
-            Dictionary<int, Rule>? map;
-            lock (invIdToSlotRules)
+            if (slot.Inventory is not InventoryBase invBase) return false;
+
+            string invId = invBase.InventoryID;
+
+            // Fast path: cached lookup
+            SlotMaps? maps;
+            lock (invIdToMaps)
             {
-                if (!invIdToSlotRules.TryGetValue(inv.InventoryID, out map)) return false;
+                invIdToMaps.TryGetValue(invId, out maps);
             }
 
-            return map.TryGetValue(slotId, out rule);
+            // If missing or inventory resized, rebuild.
+            if (maps == null || maps.BackpackCountSnapshot != invBase.Count)
+            {
+                maps = BuildMaps(invBase);
+                lock (invIdToMaps)
+                {
+                    invIdToMaps[invId] = maps;
+                }
+            }
+
+            // Primary: reference lookup
+            if (maps.BySlotRef.TryGetValue(slot, out rule))
+            {
+                return true;
+            }
+
+            // If the slot ref isn't in the map (rare), rebuild once more and retry.
+            maps = BuildMaps(invBase);
+            lock (invIdToMaps)
+            {
+                invIdToMaps[invId] = maps;
+            }
+
+            return maps.BySlotRef.TryGetValue(slot, out rule);
+        }
+
+        private static SlotMaps BuildMaps(InventoryBase backpackInv)
+        {
+            var byRef = new Dictionary<ItemSlot, Rule>(4, ReferenceEqualityComparer<ItemSlot>.Instance);
+
+            int equipIndex = 0;
+
+            for (int slotId = 0; slotId < backpackInv.Count; slotId++)
+            {
+                ItemSlot s = backpackInv[slotId];
+                if (s is ItemSlotBackpack)
+                {
+                    if (equipIndex < RequiredTierByEquipIndex.Length)
+                    {
+                        var r = new Rule
+                        {
+                            EquipIndex = equipIndex,
+                            RequiredTier = RequiredTierByEquipIndex[equipIndex]
+                        };
+                        byRef[s] = r;
+                    }
+
+                    equipIndex++;
+                }
+            }
+
+            return new SlotMaps(byRef, backpackInv.Count);
         }
     }
 
@@ -112,40 +164,8 @@ namespace ImmersiveBackpacks
             return (t >= 1 && t <= 3) ? t : 0;
         }
 
-        /// <summary>
-        /// Waist occupied check (server authoritative when possible).
-        /// We consider "waist occupied" if the character inventory contains any item whose dress type is Waist.
-        /// </summary>
-        public static bool HasWaistEquipped(IPlayer player)
-        {
-            var invMan = player.InventoryManager;
-            if (invMan == null) return false;
-
-            IInventory? charInv = invMan.GetOwnInventory(GlobalConstants.characterInvClassName);
-            if (charInv is not InventoryBase charInvBase) return false;
-
-            for (int i = 0; i < charInvBase.Count; i++)
-            {
-                ItemSlot slot = charInvBase[i];
-                if (slot?.Itemstack == null) continue;
-
-                // If any equipped item is a waist dress type, we treat waist slot as occupied.
-                if (ItemSlotCharacter.IsDressType(slot.Itemstack, EnumCharacterDressType.Waist))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Resolve the owning player from a backpack inventory using InventoryID format: "backpack-{playerUid}".
-        /// Returns null if not resolvable.
-        /// </summary>
         public static IPlayer? TryGetOwnerFromBackpackInventory(InventoryBase invBase)
         {
-            // Example from audit logs: "backpack-vvsH+9emBJnLZG4n9ebInF2Q"
             string id = invBase.InventoryID;
             string prefix = GlobalConstants.backpackInvClassName + "-"; // "backpack-"
 
@@ -165,26 +185,13 @@ namespace ImmersiveBackpacks
         public static bool Prefix(ItemSlot __instance, ItemSlot sourceSlot, ref bool __result)
         {
             if (__instance is not ItemSlotBackpack) return true;
-            if (__instance.Inventory is not InventoryBase invBase) return true;
 
-            int slotId = FindSlotId(invBase, __instance);
-            if (slotId < 0) return true;
-
-            if (!BagTierEquipSlotRegistry.TryGetRule(invBase, slotId, out var rule))
+            // IMPORTANT: If we can't resolve the rule, FAIL CLOSED for ItemSlotBackpack.
+            // This prevents manual insertion bypass and keeps mod behavior consistent.
+            if (!BagTierEquipSlotRegistry.TryGetRule(__instance, out var rule))
             {
-                // If we don't know the rule, don't block (but bouncer will still enforce server-side)
-                return true;
-            }
-
-            // Waist gating only for pouch slots (equipIndex 0 and 1)
-            if (rule.EquipIndex <= 1)
-            {
-                IPlayer? owner = TierUtil.TryGetOwnerFromBackpackInventory(invBase);
-                if (owner != null && !TierUtil.HasWaistEquipped(owner))
-                {
-                    __result = false;
-                    return false;
-                }
+                __result = false;
+                return false;
             }
 
             // Tier gating (STRICT)
@@ -195,23 +202,12 @@ namespace ImmersiveBackpacks
                 return false;
             }
 
-            // Let vanilla run additional checks too
             return true;
-        }
-
-        private static int FindSlotId(InventoryBase inv, ItemSlot target)
-        {
-            for (int i = 0; i < inv.Count; i++)
-            {
-                if (ReferenceEquals(inv[i], target)) return i;
-            }
-            return -1;
         }
     }
 
     // ============================================================
     // HARD GATE: ItemSlot.CanTakeFrom
-    // (Covers some move-operation paths where CanHold isn't consulted first)
     // ============================================================
     [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.CanTakeFrom))]
     public static class Patch_ItemSlot_CanTakeFrom
@@ -219,25 +215,12 @@ namespace ImmersiveBackpacks
         public static bool Prefix(ItemSlot __instance, ItemSlot sourceSlot, EnumMergePriority priority, ref bool __result)
         {
             if (__instance is not ItemSlotBackpack) return true;
-            if (__instance.Inventory is not InventoryBase invBase) return true;
 
-            int slotId = FindSlotId(invBase, __instance);
-            if (slotId < 0) return true;
-
-            if (!BagTierEquipSlotRegistry.TryGetRule(invBase, slotId, out var rule))
+            // Same fail-closed behavior.
+            if (!BagTierEquipSlotRegistry.TryGetRule(__instance, out var rule))
             {
-                return true;
-            }
-
-            // Waist gating for pouch slots
-            if (rule.EquipIndex <= 1)
-            {
-                IPlayer? owner = TierUtil.TryGetOwnerFromBackpackInventory(invBase);
-                if (owner != null && !TierUtil.HasWaistEquipped(owner))
-                {
-                    __result = false;
-                    return false;
-                }
+                __result = false;
+                return false;
             }
 
             int actualTier = TierUtil.GetTierStrictOrZero(sourceSlot?.Itemstack);
@@ -248,15 +231,6 @@ namespace ImmersiveBackpacks
             }
 
             return true;
-        }
-
-        private static int FindSlotId(InventoryBase inv, ItemSlot target)
-        {
-            for (int i = 0; i < inv.Count; i++)
-            {
-                if (ReferenceEquals(inv[i], target)) return i;
-            }
-            return -1;
         }
     }
 }

@@ -1,0 +1,73 @@
+{
+  "Enabled": true,
+  "DebugMode": false,
+  "DefaultBlockKg": 0.1,
+  "BagDegrade": {
+    "BrokenEffectiveness": 1.0,
+    "CurvePower": 1.25
+  },
+  "Encumbrance": {
+    "Enabled": true,
+    "StartKg": 30.0,
+    "CapKg": 90.0,
+    "StartDebuff": 0.05,
+    "MaxDebuff": 0.35
+  },
+  "Rules": {
+    "ByClass": {
+      "ItemWearable": 1.5,
+      "ItemWearableAttachment": 1.5,
+
+      "ItemWeapon": 1.5,
+      "ItemTool": 1.5,
+      "ItemMiningTool": 1.6,
+      "ItemCuttingTool": 1.4,
+
+      "ItemFood": 0.3,
+      "ItemDrinkable": 0.4,
+
+      "ItemOre": 0.4,
+      "ItemIngot": 0.5,
+      "ItemNugget": 0.05,
+      "ItemMetalPlate": 0.35,
+
+      "ItemCoal": 0.2,
+      "ItemFlint": 0.2,
+      "ItemGem": 0.1,
+
+      "ItemFirewood": 1.0,
+      "ItemLiquidPortion": 0.25,
+
+      "ItemSeed": 0.1,
+      "ItemGrain": 0.2,
+      "ItemFlour": 0.25,
+      "ItemDough": 0.3
+    },
+    "ByCode": {
+      "game:bucket": 1.2,
+      "game:bucket-wood": 0.8,
+
+      "game:arrow-wood": 0.05,
+      "game:arrow-iron": 0.08,
+
+      "game:bow": 0.8,
+      "game:crossbow": 1.6,
+
+      "game:shield-wood": 2.0,
+      "game:shield-iron": 2.8,
+
+      "game:torch": 0.4,
+
+      "game:helmet-iron": 2.0,
+      "game:chestplate-iron": 4.0,
+      "game:leggings-iron": 3.0,
+      "game:boots-iron": 1.5,
+
+      "game:egg-chicken": 0.06,
+      "game:bowl-ceramic": 0.25,
+      "game:crock-ceramic": 0.8,
+      "game:jug-ceramic": 0.9,
+      "game:pot-ceramic": 1.5
+    }
+  }
+}

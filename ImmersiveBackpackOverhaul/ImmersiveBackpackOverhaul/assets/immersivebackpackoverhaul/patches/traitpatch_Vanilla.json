@@ -1,0 +1,14 @@
+[
+  {
+    "file": "game:config/traits.json",
+    "op": "add",
+    "path": "/10/attributes/iboEncStartKgAdd",
+    "value": 10
+  },
+  {
+    "file": "game:config/traits.json",
+    "op": "add",
+    "path": "/10/attributes/iboEncCapKgAdd",
+    "value": 20
+  }
+]

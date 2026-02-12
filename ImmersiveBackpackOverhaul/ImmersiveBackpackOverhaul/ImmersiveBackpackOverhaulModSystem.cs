@@ -17,8 +17,9 @@ namespace ImmersiveBackpacks
 
         private readonly Dictionary<string, List<ItemSlot>> equipSlotsByPlayerUid = new();
         private readonly HashSet<string> enforcingPlayerUids = new();
-        private readonly HashSet<string> subscribedBackpackInvUids = new();
-        private readonly HashSet<string> subscribedCharacterInvUids = new();
+
+        // Keep delegate refs so we can unsubscribe cleanly (prevents handler accumulation on reconnect)
+        private readonly Dictionary<string, Action<int>> backpackSlotHandlersByUid = new();
 
         public override void StartServerSide(ICoreServerAPI api)
         {
@@ -33,11 +34,16 @@ namespace ImmersiveBackpacks
             equipSlotsByPlayerUid.Remove(player.PlayerUID);
             enforcingPlayerUids.Remove(player.PlayerUID);
 
-            subscribedBackpackInvUids.Remove(player.PlayerUID);
-            subscribedCharacterInvUids.Remove(player.PlayerUID);
-
-            // Unregister Harmony map entry for this player's backpack inventory (if present)
+            // Unsubscribe slot handlers (if any)
             IInventory? backpackInv = player.InventoryManager.GetOwnInventory(GlobalConstants.backpackInvClassName);
+            if (backpackInv is InventoryBase bpBase && backpackSlotHandlersByUid.TryGetValue(player.PlayerUID, out var bh))
+            {
+                bpBase.SlotModified -= bh;
+                backpackSlotHandlersByUid.Remove(player.PlayerUID);
+            }
+
+            // Optional cleanup: registry in BagTierHarmonyGate is now self-building,
+            // but removing cached mapping for dead inventories is still fine.
             if (backpackInv is InventoryBase invBase)
             {
                 BagTierEquipSlotRegistry.UnregisterInventory(invBase.InventoryID);
@@ -53,53 +59,27 @@ namespace ImmersiveBackpacks
                 return;
             }
 
-            // Register equip slot ids for Harmony gate (server authoritative)
-            BagTierEquipSlotRegistry.RegisterBackpackEquipSlots(backpackInvBase, requiredTierByEquipIndex);
-
             // Cache equip slots (object refs) for bouncer safety net
             equipSlotsByPlayerUid[player.PlayerUID] = FindEquipSlots(backpackInvBase);
 
             // Subscribe once to backpack inventory slot changes
-            if (subscribedBackpackInvUids.Add(player.PlayerUID))
+            if (!backpackSlotHandlersByUid.ContainsKey(player.PlayerUID))
             {
-                backpackInvBase.SlotModified += slotId =>
+                Action<int> bh = slotId =>
                 {
                     if (enforcingPlayerUids.Contains(player.PlayerUID)) return;
+                    if (slotId < 0 || slotId >= backpackInvBase.Count) return;
 
                     ItemSlot changedSlot = backpackInvBase[slotId];
-                    if (changedSlot == null) return;
-
                     EnforceIfEquipSlot(player, changedSlot);
                 };
-            }
 
-            // Subscribe once to character inventory slot changes (waist gating cleanup)
-            IInventory? charInv = player.InventoryManager.GetOwnInventory(GlobalConstants.characterInvClassName);
-            if (charInv is InventoryBase charInvBase)
-            {
-                if (subscribedCharacterInvUids.Add(player.PlayerUID))
-                {
-                    charInvBase.SlotModified += _ =>
-                    {
-                        if (enforcingPlayerUids.Contains(player.PlayerUID)) return;
-
-                        // If waist is empty now, force-eject pouch slots once (0 and 1)
-                        if (!TierUtil.HasWaistEquipped(player))
-                        {
-                            EjectPouchSlotsIfAny(player);
-                        }
-                    };
-                }
+                backpackSlotHandlersByUid[player.PlayerUID] = bh;
+                backpackInvBase.SlotModified += bh;
             }
 
             // Clean invalid pre-existing states once (e.g., from older saves/mod changes)
             EnforceAllEquipSlots(player);
-
-            // Also apply waist gating cleanup once on join (in case save already has pouches equipped)
-            if (!TierUtil.HasWaistEquipped(player))
-            {
-                EjectPouchSlotsIfAny(player);
-            }
         }
 
         private List<ItemSlot> FindEquipSlots(InventoryBase backpackInv)
@@ -171,22 +151,6 @@ namespace ImmersiveBackpacks
             }
         }
 
-        private void EjectPouchSlotsIfAny(IServerPlayer player)
-        {
-            if (!equipSlotsByPlayerUid.TryGetValue(player.PlayerUID, out var equipSlots)) return;
-            if (equipSlots.Count < 2) return;
-
-            // Only slots 0 and 1 are pouch slots
-            for (int equipIndex = 0; equipIndex <= 1; equipIndex++)
-            {
-                ItemSlot slot = equipSlots[equipIndex];
-                if (!slot.Empty)
-                {
-                    Eject(player, slot, "Pouch slots require waist slot occupied.");
-                }
-            }
-        }
-
         private void Eject(IServerPlayer player, ItemSlot equipSlot, string reason)
         {
             enforcingPlayerUids.Add(player.PlayerUID);
@@ -201,7 +165,6 @@ namespace ImmersiveBackpacks
 
                 if (badStack != null)
                 {
-                    // Safety net return: avoid re-equip into ItemSlotBackpack
                     bool placed = TryGiveToNonEquipPlayerSlots(player, badStack);
                     if (!placed)
                     {

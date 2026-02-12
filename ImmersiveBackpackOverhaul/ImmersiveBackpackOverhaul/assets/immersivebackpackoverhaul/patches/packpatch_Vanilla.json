@@ -1,0 +1,51 @@
+[
+
+  { "file": "game:itemtypes/wearable/bag/backpack.json",        "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+  { "file": "game:itemtypes/wearable/bag/hunterbackpack.json",  "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+  { "file": "game:itemtypes/wearable/bag/glider.json",          "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 3 } },
+
+  { "file": "game:itemtypes/wearable/bag/handbasket.json",      "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/linensack.json",       "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/miningbag.json",       "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+  { "file": "game:itemtypes/wearable/bag/quiver.json",          "op": "addMerge", "path": "/attributes", "value": { "iboBagTier": 2 } },
+
+
+  { "file": "game:itemtypes/wearable/bag/handbasket.json",      "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 8 },
+  { "file": "game:itemtypes/wearable/bag/hunterbackpack.json",  "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 10 },
+  { "file": "game:itemtypes/wearable/bag/linensack.json",       "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 13 },
+
+  { "file": "game:itemtypes/wearable/bag/backpack.json",        "op": "replace", "path": "/attributes/backpackByType/*-normal/quantitySlots", "value": 15 },
+  { "file": "game:itemtypes/wearable/bag/backpack.json",        "op": "replace", "path": "/attributes/backpackByType/*-sturdy/quantitySlots", "value": 20 },
+
+  { "file": "game:itemtypes/wearable/bag/miningbag.json",       "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 30 },
+  { "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 35 },
+
+  { "file": "game:itemtypes/wearable/bag/quiver.json",          "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 25 },
+  { "file": "game:itemtypes/wearable/bag/glider.json",          "op": "replace", "path": "/attributes/backpack/quantitySlots", "value": 5 },
+
+
+  { "file": "game:itemtypes/wearable/bag/handbasket.json",      "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.95 },
+  { "file": "game:itemtypes/wearable/bag/handbasket.json",      "op": "add", "path": "/durability", "value": 250 },
+
+  { "file": "game:itemtypes/wearable/bag/linensack.json",       "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.65 },
+  { "file": "game:itemtypes/wearable/bag/linensack.json",       "op": "add", "path": "/durability", "value": 450 },
+
+  { "file": "game:itemtypes/wearable/bag/hunterbackpack.json",  "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.75 },
+  { "file": "game:itemtypes/wearable/bag/hunterbackpack.json",  "op": "add", "path": "/durability", "value": 650 },
+
+  { "file": "game:itemtypes/wearable/bag/backpack.json",        "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.45 },
+  { "file": "game:itemtypes/wearable/bag/backpack.json",        "op": "add", "path": "/durability", "value": 1000 },
+
+  { "file": "game:itemtypes/wearable/bag/miningbag.json",       "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.55 },
+  { "file": "game:itemtypes/wearable/bag/miningbag.json",       "op": "add", "path": "/durability", "value": 900 },
+
+  { "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.45 },
+  { "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "op": "add", "path": "/durability", "value": 1400 },
+
+  { "file": "game:itemtypes/wearable/bag/quiver.json",          "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.80 },
+  { "file": "game:itemtypes/wearable/bag/quiver.json",          "op": "add", "path": "/durability", "value": 600 },
+
+  { "file": "game:itemtypes/wearable/bag/glider.json",          "op": "add", "path": "/attributes/iboBagEffectiveness", "value": 0.60 },
+  { "file": "game:itemtypes/wearable/bag/glider.json",          "op": "add", "path": "/durability", "value": 800 }
+]

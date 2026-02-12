@@ -1,3 +1,4 @@
 {
-    "item-immersivebackpacks:pouch": "Test Pouch"
+  "game:charattribute-iboEncStartKgAdd-10": "Can carry 10 kg more before becoming encumbered",
+  "game:charattribute-iboEncCapKgAdd-20": "20 kg more until maximum encumbrance slowdown"
 }

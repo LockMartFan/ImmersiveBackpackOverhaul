@@ -4,102 +4,95 @@
     "op": "addMerge",
     "path": "/attributes",
     "value": {
-      "iboBagTier": 2,
-      "iboBagEffectiveness": 0.70,
-      "iboBaseWeightKg": 0.60
+      "iboBagTier": 2
     },
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/legpouch.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
     "value": 15,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
-  {
-    "file": "ithaniabackpacks:itemtypes/wearable/bag/legpouch.json",
-    "op": "add",
-    "path": "/durability",
-    "value": 650,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
-  },
-
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/hunter-backpack.json",
     "op": "addMerge",
     "path": "/attributes",
     "value": {
-      "iboBagTier": 3,
-      "iboBagEffectiveness": 0.70,
-      "iboBaseWeightKg": 1.20
+      "iboBagTier": 3
     },
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/hunter-backpack.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
     "value": 12,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
-  {
-    "file": "ithaniabackpacks:itemtypes/wearable/bag/hunter-backpack.json",
-    "op": "add",
-    "path": "/durability",
-    "value": 800,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
-  },
-
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/leather-backpack.json",
     "op": "addMerge",
     "path": "/attributes",
     "value": {
-      "iboBagTier": 3,
-      "iboBagEffectiveness": 0.42,
-      "iboBaseWeightKg": 1.55
+      "iboBagTier": 3
     },
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/leather-backpack.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
     "value": 22,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
-  {
-    "file": "ithaniabackpacks:itemtypes/wearable/bag/leather-backpack.json",
-    "op": "add",
-    "path": "/durability",
-    "value": 1400,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
-  },
-
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/backpack.json",
     "op": "addMerge",
     "path": "/attributes",
     "value": {
-      "iboBagTier": 3,
-      "iboBagEffectiveness": 0.40,
-      "iboBaseWeightKg": 1.95
+      "iboBagTier": 3
     },
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   },
   {
     "file": "ithaniabackpacks:itemtypes/wearable/bag/backpack.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
     "value": 26,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
-  },
-  {
-    "file": "ithaniabackpacks:itemtypes/wearable/bag/backpack.json",
-    "op": "add",
-    "path": "/durability",
-    "value": 1600,
-    "dependsOn": [ { "modid": "ithaniabackpacks" } ]
+    "dependsOn": [
+      {
+        "modid": "ithaniabackpacks"
+      }
+    ]
   }
 ]

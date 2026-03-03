@@ -1,0 +1,9 @@
+{
+  "ingredientPattern": "RRR,R_R,_R_",
+  "ingredients": {
+    "R": { "type": "item", "code": "game:*cattail*tops" }
+  },
+  "width": 3,
+  "height": 3,
+  "output": { "type": "item", "code": "immersivebackpackoverhaul:reedpouch" }
+}

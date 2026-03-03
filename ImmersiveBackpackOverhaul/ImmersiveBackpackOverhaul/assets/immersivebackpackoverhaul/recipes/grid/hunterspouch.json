@@ -1,0 +1,12 @@
+{
+  "ingredientPattern": "L_L,LBL,_T_",
+  "requiresTrait": "hunter",
+  "ingredients": {
+    "L": { "type": "item", "code": "game:leather-*-plain" },
+    "B": { "type": "item", "code": "game:bone" },
+    "T": { "type": "item", "code": "game:flaxtwine" }
+  },
+  "width": 3,
+  "height": 3,
+  "output": { "type": "item", "code": "immersivebackpackoverhaul:hunterspouch" }
+}

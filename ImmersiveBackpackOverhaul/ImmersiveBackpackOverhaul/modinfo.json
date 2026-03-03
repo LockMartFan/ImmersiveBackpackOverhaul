@@ -6,9 +6,9 @@
     "authors": [
         "Livon"
     ],
-    "description": "Comes in two modules, by default, enforces bag slot tier separation and limits the amount of backpacks that once can have, introducing lesser bag tiers. Secondly, adds a new weight system to the game where backpacks play an important role in mitigating it.",
-    "version": "0.4.1",
+    "description": "Gates the bag equip slots to ensure that the player is wearing one backpack a time, adds some pouches for variety and to fill in the former backpack slots.",
+    "version": "0.5.1",
     "dependencies": {
-        "game": "1.21.6"
+        "game": "^1.21.6"
     }
 }

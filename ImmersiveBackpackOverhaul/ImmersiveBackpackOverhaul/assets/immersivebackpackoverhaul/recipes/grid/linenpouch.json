@@ -1,0 +1,10 @@
+{
+  "ingredientPattern": "LLL,L_L,_T_",
+  "ingredients": {
+    "L": { "type": "item", "code": "game:cloth-plain" },
+    "T": { "type": "item", "code": "game:flaxtwine" }
+  },
+  "width": 3,
+  "height": 3,
+  "output": { "type": "item", "code": "immersivebackpackoverhaul:linenpouch" }
+}

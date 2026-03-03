@@ -1,0 +1,46 @@
+{
+  "code": "sturdyleatherpouch",
+  "maxstacksize": 1,
+  "creativeinventory": { "general": [ "*" ] },
+  "shape": {
+    "base": "immersivebackpackoverhaul:item/pouch/sturdyleatherpouch1"
+  },
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "SingleCenter",
+        "collisionBox": {
+          "x1": 0.25,
+          "y1": 0,
+          "z1": 0.25,
+          "x2": 0.75,
+          "y2": 0.375,
+          "z2": 0.75
+        }
+      }
+    },
+    {
+      "name": "HeldBag"
+    }
+  ],
+  "storageFlags": 2,
+	"guiTransform": {
+		"translation": { x: 0, y: 0, z: 0 },
+		"rotation": { x: -13, y: -159, z: -180 },
+		"origin": { x: 0.7, y: 0.2, z: 0.5 },
+		"scale": 3.04
+	},
+	"tpHandTransform": {
+    "translation": { x: -0.55, y: -0.2, z: 0.75 },
+    "rotation": { x: -18, y: -83, z: 18 },
+    "origin": { x: 0, y: 0, z: 0 },
+    "scale": 0.49
+	},
+  "attributes": {
+    "iboBagTier": 1,
+    "backpack": {
+      "quantitySlots": 3
+    }
+  }
+}

@@ -1,4 +1,9 @@
 {
-  "game:charattribute-iboEncStartKgAdd-10": "Can carry 10 kg more before becoming encumbered",
-  "game:charattribute-iboEncCapKgAdd-20": "20 kg more until maximum encumbrance slowdown"
+  "item-reedpouch": "Reed pouch",
+  "item-linenpouch": "Linen pouch",
+  "item-coinpurse": "Coin purse",
+  "item-simpleleatherpouch": "Leather pouch",
+  "item-hunterspouch": "Hunter's pouch",
+  "item-sturdyleatherpouch": "Sturdy Leather pouch",
+  "item-adventurerspouch": "Adventurer's pouch"
 }

@@ -1,0 +1,10 @@
+{
+  "ingredientPattern": "LLL,L_L,L_L",
+  "requiresTrait": "clothier",
+  "ingredients": {
+    "L": { "type": "item", "code": "game:leather-*-plain" }
+  },
+  "width": 3,
+  "height": 3,
+  "output": { "type": "item", "code": "immersivebackpackoverhaul:sturdyleatherpouch" }
+}

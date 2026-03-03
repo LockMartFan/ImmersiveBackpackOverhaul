@@ -6,9 +6,9 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 using Vintagestory.API.Config;
 
-namespace ImmersiveBackpacks
+namespace ImmersiveBackpackOverhaul
 {
-    public class BackpackSlotBouncerSystem : ModSystem
+    public class IboSlotRestrictionSystem : ModSystem
     {
         private ICoreServerAPI sapi = null!;
 
@@ -59,10 +59,8 @@ namespace ImmersiveBackpacks
                 return;
             }
 
-            // Cache equip slots (object refs) for bouncer safety net
             equipSlotsByPlayerUid[player.PlayerUID] = FindEquipSlots(backpackInvBase);
 
-            // Subscribe once to backpack inventory slot changes
             if (!backpackSlotHandlersByUid.ContainsKey(player.PlayerUID))
             {
                 Action<int> bh = slotId =>
@@ -141,13 +139,13 @@ namespace ImmersiveBackpacks
             // Strict: missing tag => invalid (forces you to patch)
             if (actualTier == 0)
             {
-                Eject(player, equipSlot, "Missing attributes.iboBagTier tag (compat patch required).");
+                Eject(player, equipSlot, "Missing attributes.iboBagTier.");
                 return;
             }
 
             if (actualTier != requiredTier)
             {
-                Eject(player, equipSlot, $"Tier {actualTier} not allowed here (requires Tier {requiredTier}).");
+              // Eject(player, equipSlot, $"Tier {actualTier} not allowed here (requires Tier {requiredTier}).");
             }
         }
 
@@ -172,7 +170,7 @@ namespace ImmersiveBackpacks
                     }
                 }
 
-                sapi.Logger.Warning($"[ImmersiveBackpacks] Ejected '{code}' from bag equip slot. Reason: {reason}");
+              //  sapi.Logger.Warning($"[ImmersiveBackpacks] Ejected '{code}' from bag equip slot. Reason: {reason}");
             }
             finally
             {

@@ -1,13 +1,11 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 
-namespace ImmersiveBackpacks
+namespace ImmersiveBackpackOverhaul
 {
     public class BagTierHarmonyGateSystem : ModSystem
     {
@@ -29,10 +27,6 @@ namespace ImmersiveBackpacks
         }
     }
 
-    /// <summary>
-    /// Self-sufficient equip-slot rule registry.
-    /// Built lazily from the inventory itself (client+server) and then cached O(1).
-    /// </summary>
     public static class BagTierEquipSlotRegistry
     {
         // Final desired equip tiers: [Pouch, Pouch, Satchel, Backpack]
@@ -101,13 +95,11 @@ namespace ImmersiveBackpacks
                 }
             }
 
-            // Primary: reference lookup
             if (maps.BySlotRef.TryGetValue(slot, out rule))
             {
                 return true;
             }
 
-            // If the slot ref isn't in the map (rare), rebuild once more and retry.
             maps = BuildMaps(invBase);
             lock (invIdToMaps)
             {
@@ -176,9 +168,6 @@ namespace ImmersiveBackpacks
         }
     }
 
-    // ============================================================
-    // HARD GATE: ItemSlot.CanHold
-    // ============================================================
     [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.CanHold))]
     public static class Patch_ItemSlot_CanHold
     {
@@ -186,15 +175,12 @@ namespace ImmersiveBackpacks
         {
             if (__instance is not ItemSlotBackpack) return true;
 
-            // IMPORTANT: If we can't resolve the rule, FAIL CLOSED for ItemSlotBackpack.
-            // This prevents manual insertion bypass and keeps mod behavior consistent.
             if (!BagTierEquipSlotRegistry.TryGetRule(__instance, out var rule))
             {
                 __result = false;
                 return false;
             }
 
-            // Tier gating (STRICT)
             int actualTier = TierUtil.GetTierStrictOrZero(sourceSlot?.Itemstack);
             if (actualTier == 0 || actualTier != rule.RequiredTier)
             {

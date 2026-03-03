@@ -1,0 +1,10 @@
+{
+  "ingredientPattern": "HHH,H_H,_T_",
+  "ingredients": {
+    "H": { "type": "item", "code": "game:hide-raw-small" },
+    "T": { "type": "item", "code": "game:flaxtwine" }
+  },
+  "width": 3,
+  "height": 3,
+  "output": { "type": "item", "code": "immersivebackpackoverhaul:coinpurse" }
+}

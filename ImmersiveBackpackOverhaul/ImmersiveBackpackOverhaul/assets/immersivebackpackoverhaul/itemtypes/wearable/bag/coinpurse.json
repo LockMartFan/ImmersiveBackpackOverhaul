@@ -1,0 +1,47 @@
+{
+  "code": "coinpurse",
+  "maxstacksize": 1,
+  "creativeinventory": { "general": [ "*" ] },
+  "shape": {
+    "base": "immersivebackpackoverhaul:item/pouch/coinpurse"
+  },
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "SingleCenter",
+        "collisionBox": {
+          "x1": 0.25,
+          "y1": 0,
+          "z1": 0.25,
+          "x2": 0.75,
+          "y2": 0.375,
+          "z2": 0.75
+        }
+      }
+    },
+    {
+      "name": "HeldBag"
+    }
+  ],
+ "guiTransform": {
+    "translation": { x: 0, y: 0, z: 0 },
+    "rotation": { x: -22, y: -140, z: -180 },
+    "origin": { x: 0.62, y: 0.05, z: 0.5 },
+    "scale": 6
+},
+  "tpHandTransform": {
+    "translation": { x: -0.22, y: -0.1, z: 0.7 },
+    "rotation": { x: -180, y: -115, z: -180 },
+    "origin": { x: 0, y: 0, z: 0 },
+    "scale": 1.06
+  },
+  "attributes": {
+    "iboBagTier": 1,
+    "backpack": {
+      "quantitySlots": 3,
+      "storageFlags": 64,
+      "slotBgColor": "#c2ffe8"
+    }
+  }
+}

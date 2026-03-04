@@ -1,2978 +1,617 @@
 {
-  "textureWidth":16,
-  "textureHeight":16,
-  "textures":{
+	"editor": {
+		"allAngles": false,
+		"backfaceCulling": true,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
 	    "linen": "game:item/bag/linensack/linen",
 		"rope": "game:block/locustnest/stalagmite/rope",
 		"wood": "game:block/wood/oak"
-  },
-  "textureSizes":{},
-  "elements":[
-    {
-      "name":"linen",
-      "from":[
-        8.842038577159698,
-        0.9395395426617341,
-        6.390959566196258
-      ],
-      "to":[
-        10.020274216571991,
-        2.4847146363391204,
-        7.569195205608551
-      ],
-      "rotationOrigin":[
-        9.431156396865845,
-        1.7121270895004272,
-        6.980077385902405
-      ],
-      "rotationY":-179.999991348578,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.001",
-      "from":[
-        9.383303321897984,
-        2.325427532196045,
-        7.1439599841833115
-      ],
-      "to":[
-        9.407706581056118,
-        3.391599178314209,
-        7.518919005990028
-      ],
-      "rotationOrigin":[
-        9.39550495147705,
-        2.858513355255127,
-        7.33143949508667
-      ],
-      "rotationX":-0.00015393234257751056,
-      "rotationY":-96.04621573136768,
-      "rotationZ":144.27118983797126,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.002",
-      "from":[
-        8.991854349878528,
-        2.939670294523239,
-        7.362463936209679
-      ],
-      "to":[
-        9.016257603856824,
-        3.4805701076984406,
-        7.737422958016396
-      ],
-      "rotationOrigin":[
-        9.004055976867676,
-        3.21012020111084,
-        7.549943447113037
-      ],
-      "rotationX":-0.00017833573532332253,
-      "rotationY":-96.04624988231353,
-      "rotationZ":144.2710668945662,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.003",
-      "from":[
-        9.71076838186095,
-        2.939670294523239,
-        7.438611015677452
-      ],
-      "to":[
-        9.735171635839245,
-        3.4805701076984406,
-        7.813570037484169
-      ],
-      "rotationOrigin":[
-        9.722970008850098,
-        3.21012020111084,
-        7.6260905265808105
-      ],
-      "rotationX":-0.00017833573532332253,
-      "rotationY":-96.04624988231353,
-      "rotationZ":144.2710668945662,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.004",
-      "from":[
-        9.839083352126181,
-        2.9396702647209167,
-        6.227171882987022
-      ],
-      "to":[
-        9.86348660942167,
-        3.480570137500763,
-        6.602130904793739
-      ],
-      "rotationOrigin":[
-        9.851284980773926,
-        3.21012020111084,
-        6.414651393890381
-      ],
-      "rotationX":6.091244845092218e-06,
-      "rotationY":83.95387807004786,
-      "rotationZ":-35.72874003890421,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.005",
-      "from":[
-        9.12016932014376,
-        2.9396702647209167,
-        6.151024326682091
-      ],
-      "to":[
-        9.144572577439249,
-        3.480570137500763,
-        6.525983348488808
-      ],
-      "rotationOrigin":[
-        9.132370948791504,
-        3.21012020111084,
-        6.338503837585449
-      ],
-      "rotationX":6.091244845092218e-06,
-      "rotationY":83.95387807004786,
-      "rotationZ":-35.72874003890421,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.006",
-      "from":[
-        9.457159676385023,
-        2.325427532196045,
-        6.44668386503932
-      ],
-      "to":[
-        9.48156293408861,
-        3.391599178314209,
-        6.821642894299059
-      ],
-      "rotationOrigin":[
-        9.469361305236816,
-        2.858513355255127,
-        6.6341633796691895
-      ],
-      "rotationX":-4.309267484155294e-06,
-      "rotationY":83.95385757948036,
-      "rotationZ":-35.72870588795836,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.007",
-      "from":[
-        9.072012580931187,
-        2.325427532196045,
-        6.7328061908483505
-      ],
-      "to":[
-        9.096415840089321,
-        3.391599178314209,
-        7.107765212655067
-      ],
-      "rotationOrigin":[
-        9.084214210510254,
-        2.858513355255127,
-        6.920285701751709
-      ],
-      "rotationX":2.597610151670532e-07,
-      "rotationY":170.30654589736088,
-      "rotationZ":-35.72848390681033,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.008",
-      "from":[
-        8.755514778196812,
-        2.939670294523239,
-        7.050305351614952
-      ],
-      "to":[
-        8.779918037354946,
-        3.4805701076984406,
-        7.425264373421669
-      ],
-      "rotationOrigin":[
-        8.767716407775879,
-        3.21012020111084,
-        7.2377848625183105
-      ],
-      "rotationX":-1.8351010462261616e-07,
-      "rotationY":170.30654589736088,
-      "rotationZ":-35.728490736999504,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.009",
-      "from":[
-        8.87723795324564,
-        2.939670294523239,
-        6.337693199515343
-      ],
-      "to":[
-        8.901641212403774,
-        3.4805701076984406,
-        6.71265222132206
-      ],
-      "rotationOrigin":[
-        8.889439582824707,
-        3.21012020111084,
-        6.525172710418701
-      ],
-      "rotationX":-1.8351010462261616e-07,
-      "rotationY":170.30654589736088,
-      "rotationZ":-35.728490736999504,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.010",
-      "from":[
-        10.07806269524703,
-        2.939670294523239,
-        6.542813301086426
-      ],
-      "to":[
-        10.10246594550004,
-        3.4805701076984406,
-        6.91777229309082
-      ],
-      "rotationOrigin":[
-        10.090264320373535,
-        3.21012020111084,
-        6.730292797088623
-      ],
-      "rotationX":2.722875814355661e-06,
-      "rotationY":-9.69347618706838,
-      "rotationZ":144.2715450078081,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.011",
-      "from":[
-        9.956335705500939,
-        2.939670294523239,
-        7.255425453186035
-      ],
-      "to":[
-        9.980738955753944,
-        3.4805701076984406,
-        7.63038444519043
-      ],
-      "rotationOrigin":[
-        9.968537330627441,
-        3.21012020111084,
-        7.442904949188232
-      ],
-      "rotationX":2.722875814355661e-06,
-      "rotationY":-9.69347618706838,
-      "rotationZ":144.2715450078081,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.012",
-      "from":[
-        9.763178505003452,
-        2.325427532196045,
-        6.850869219748942
-      ],
-      "to":[
-        9.787581764161587,
-        3.391599178314209,
-        7.225828129799398
-      ],
-      "rotationOrigin":[
-        9.77538013458252,
-        2.858513355255127,
-        7.03834867477417
-      ],
-      "rotationX":1.2331435931028247e-06,
-      "rotationY":-9.69346508801098,
-      "rotationZ":144.27155866818643,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.032",
-      "from":[
-        8.654251921273925,
-        1.6747261165259388,
-        6.2295198322312615
-      ],
-      "to":[
-        10.153901231191895,
-        2.32140244258661,
-        7.729169142149232
-      ],
-      "rotationOrigin":[
-        9.40407657623291,
-        1.9980642795562744,
-        6.979344487190247
-      ],
-      "rotationY":-179.999991348578,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.034",
-      "from":[
-        8.54398272076098,
-        -0.1858062399394953,
-        6.119250631718316
-      ],
-      "to":[
-        10.26417043170484,
-        2.0957889212139094,
-        7.839438342662177
-      ],
-      "rotationOrigin":[
-        9.40407657623291,
-        0.954991340637207,
-        6.979344487190247
-      ],
-      "rotationY":-179.999991348578,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"linen.045",
-      "from":[
-        8.932298243045807,
-        2.7557853907346725,
-        6.508194029331207
-      ],
-      "to":[
-        9.875854909420013,
-        2.9116483479738235,
-        7.451750695705414
-      ],
-      "rotationOrigin":[
-        9.40407657623291,
-        2.833716869354248,
-        6.9799723625183105
-      ],
-      "rotationY":-179.999991348578,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#linen",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.084",
-      "from":[
-        9.085882380604744,
-        1.7172832099705484,
-        5.534560665488243
-      ],
-      "to":[
-        9.154580876231194,
-        1.7859816940516684,
-        5.796194091439247
-      ],
-      "rotationOrigin":[
-        9.120231628417969,
-        1.7516324520111084,
-        5.665377378463745
-      ],
-      "rotationX":113.49673434372497,
-      "rotationY":0.6960218896336868,
-      "rotationZ":-1.068774020780138,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.009",
-      "from":[
-        9.012579971045055,
-        2.4710900709033012,
-        6.588475757330455
-      ],
-      "to":[
-        9.795573181420766,
-        2.6072757318615913,
-        7.371468967706166
-      ],
-      "rotationOrigin":[
-        9.40407657623291,
-        2.5391829013824463,
-        6.9799723625183105
-      ],
-      "rotationY":-177.22182556405366,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"Cube",
-      "from":[
-        9.252608016133308,
-        2.516323521733284,
-        6.243391826748848
-      ],
-      "to":[
-        9.548564240336418,
-        2.8122797459363937,
-        6.539348050951958
-      ],
-      "rotationOrigin":[
-        9.400586128234863,
-        2.664301633834839,
-        6.391369938850403
-      ],
-      "rotationX":23.204293874838115,
-      "rotationY":3.0331717468567398e-06,
-      "rotationZ":-6.227388666343326e-07,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.002",
-      "from":[
-        9.086357407271862,
-        2.109935812652111,
-        5.703420430421829
-      ],
-      "to":[
-        9.18323678523302,
-        2.20681519061327,
-        6.072378844022751
-      ],
-      "rotationOrigin":[
-        9.134797096252441,
-        2.1583755016326904,
-        5.88789963722229
-      ],
-      "rotationX":-56.94084873286261,
-      "rotationY":2.8483468320198737,
-      "rotationZ":17.740839218123256,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"Cube.001",
-      "from":[
-        9.024755857884884,
-        1.8535343632102013,
-        5.667716173972655
-      ],
-      "to":[
-        9.22962150722742,
-        2.058400012552738,
-        5.872581811104249
-      ],
-      "rotationOrigin":[
-        9.127188682556152,
-        1.9559671878814697,
-        5.770148992538452
-      ],
-      "rotationX":120.7581406767973,
-      "rotationY":2.2580500808790487,
-      "rotationZ":16.66391304640359,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"Cube.002",
-      "from":[
-        9.060511975135375,
-        2.240984581410885,
-        5.935720466077328
-      ],
-      "to":[
-        9.265377612266969,
-        2.445850230753422,
-        6.140586115419865
-      ],
-      "rotationOrigin":[
-        9.162944793701172,
-        2.3434174060821533,
-        6.038153290748596
-      ],
-      "rotationX":56.86457259530649,
-      "rotationY":14.247622636937566,
-      "rotationZ":-12.936737726709222,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.005",
-      "from":[
-        9.203141503036022,
-        2.4295659586787224,
-        6.019796043634415
-      ],
-      "to":[
-        9.300020880997181,
-        2.526445336639881,
-        6.388754457235336
-      ],
-      "rotationOrigin":[
-        9.251581192016602,
-        2.4780056476593018,
-        6.2042752504348755
-      ],
-      "rotationX":-31.83861945750179,
-      "rotationY":24.2721273572252,
-      "rotationZ":3.0356794976028714,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"Cube.003",
-      "from":[
-        9.529366873204708,
-        2.2199131473898888,
-        5.977426551282406
-      ],
-      "to":[
-        9.734232522547245,
-        2.4247787967324257,
-        6.182292200624943
-      ],
-      "rotationOrigin":[
-        9.631799697875977,
-        2.3223459720611572,
-        6.079859375953674
-      ],
-      "rotationX":-123.13540167779857,
-      "rotationY":14.247629467126735,
-      "rotationZ":-12.936734311614638,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"Cube.004",
-      "from":[
-        9.565123938024044,
-        1.8324634060263634,
-        5.709423206746578
-      ],
-      "to":[
-        9.769989587366581,
-        2.0373290553689003,
-        5.914288856089115
-      ],
-      "rotationOrigin":[
-        9.667556762695312,
-        1.9348962306976318,
-        5.811856031417847
-      ],
-      "rotationX":-59.241871162348204,
-      "rotationY":2.2580650219178584,
-      "rotationZ":16.66394719734944,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#wood",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.006",
-      "from":[
-        9.640164569020271,
-        1.6962127275764942,
-        5.576267227530479
-      ],
-      "to":[
-        9.70886306464672,
-        1.7649112157523632,
-        5.8379006534814835
-      ],
-      "rotationOrigin":[
-        9.674513816833496,
-        1.7305619716644287,
-        5.7070839405059814
-      ],
-      "rotationX":-66.50325017466386,
-      "rotationY":0.6960229568507447,
-      "rotationZ":-1.068767617477791,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.012",
-      "from":[
-        9.494723613467198,
-        2.4084945275449567,
-        6.06150213983531
-      ],
-      "to":[
-        9.591602985653896,
-        2.5053738997316546,
-        6.430460531444597
-      ],
-      "rotationOrigin":[
-        9.543163299560547,
-        2.4569342136383057,
-        6.245981335639954
-      ],
-      "rotationX":148.16140604202207,
-      "rotationY":24.272110281752276,
-      "rotationZ":3.0356675447718238,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.013",
-      "from":[
-        9.611507706344128,
-        2.0888648583555036,
-        5.7451269924640656
-      ],
-      "to":[
-        9.708387084305286,
-        2.1857442305422015,
-        6.114085406064987
-      ],
-      "rotationOrigin":[
-        9.659947395324707,
-        2.1373045444488525,
-        5.929606199264526
-      ],
-      "rotationX":123.05914944590455,
-      "rotationY":2.848339788387292,
-      "rotationZ":17.740832387934084,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.003",
-      "from":[
-        8.978299140930176,
-        2.6114181696805523,
-        6.554194927215576
-      ],
-      "to":[
-        9.829854011535645,
-        2.759528714474721,
-        7.405749797821045
-      ],
-      "rotationOrigin":[
-        9.40407657623291,
-        2.6854734420776367,
-        6.9799723625183105
-      ],
-      "rotationX":1.0243378772570928,
-      "rotationY":-177.76277654631866,
-      "rotationZ":-1.4836279715790763,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.062",
-      "from":[
-        9.151727922623374,
-        2.7395842153479837,
-        6.157616688900937
-      ],
-      "to":[
-        9.250456563765786,
-        2.838312856490395,
-        6.674039290255557
-      ],
-      "rotationOrigin":[
-        9.20109224319458,
-        2.7889485359191895,
-        6.415827989578247
-      ],
-      "rotationX":98.8563672917752,
-      "rotationY":62.78253194505609,
-      "rotationZ":-89.74561210884104,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.010",
-      "from":[
-        9.567666184189527,
-        2.5479924756934427,
-        6.127763702565183
-      ],
-      "to":[
-        9.666394818541796,
-        2.646721116835854,
-        6.644186303919803
-      ],
-      "rotationOrigin":[
-        9.617030501365662,
-        2.5973567962646484,
-        6.385975003242493
-      ],
-      "rotationX":98.8563672917752,
-      "rotationY":70.13189745425986,
-      "rotationZ":90.25437923973695,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.008",
-      "from":[
-        9.837339885895469,
-        2.661720595275005,
-        6.15388188027125
-      ],
-      "to":[
-        9.93606852703788,
-        2.760448136414448,
-        6.650872615349478
-      ],
-      "rotationOrigin":[
-        9.886704206466675,
-        2.7110843658447266,
-        6.402377247810364
-      ],
-      "rotationX":98.85635363139686,
-      "rotationY":0.9923320376932361,
-      "rotationZ":90.25438606992613,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.007",
-      "from":[
-        9.580767400925376,
-        2.7466809861685917,
-        6.15872247427081
-      ],
-      "to":[
-        9.679496042067788,
-        2.8454096205208614,
-        6.67514507562543
-      ],
-      "rotationOrigin":[
-        9.630131721496582,
-        2.7960453033447266,
-        6.41693377494812
-      ],
-      "rotationX":-81.1436445473703,
-      "rotationY":62.78253194505609,
-      "rotationZ":-89.74561210884104,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.004",
-      "from":[
-        8.895155616467216,
-        2.654623827849468,
-        6.152776094901377
-      ],
-      "to":[
-        8.993884257609627,
-        2.753351368988911,
-        6.649766829979605
-      ],
-      "rotationOrigin":[
-        8.944519937038422,
-        2.7039875984191895,
-        6.401271462440491
-      ],
-      "rotationX":-81.1436445473703,
-      "rotationY":0.9923130412296071,
-      "rotationZ":90.25437240954778,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    },
-    {
-      "name":"cord.001",
-      "from":[
-        9.164829146149366,
-        2.5408959500815556,
-        6.12665794305509
-      ],
-      "to":[
-        9.263557780501635,
-        2.6396245844338253,
-        6.643080492690149
-      ],
-      "rotationOrigin":[
-        9.2141934633255,
-        2.5902602672576904,
-        6.38486921787262
-      ],
-      "rotationX":-81.14366503793781,
-      "rotationY":70.13188379388151,
-      "rotationZ":90.25442022087198,
-      "group":"Scene Collection",
-      "faces":{
-        "north":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "east":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "south":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "west":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "up":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        },
-        "down":{
-          "texture":"#rope",
-          "uv":[
-            0,
-            0,
-            4,
-            4
-          ],
-          "autoUv":false
-        }
-      },
-      "children":[]
-    }
-  ],
-  "groups":[]
-}
+	},
+	"elements": [
+		{
+			"name": "linen",
+			"from": [ 8.842, 1.0797, 6.391 ],
+			"to": [ 10.0203, 2.6249, 7.5692 ],
+			"rotationOrigin": [ 9.4312, 1.8523, 6.9801 ],
+			"rotationY": -180.0,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.001",
+			"from": [ 9.3833, 2.4656, 7.144 ],
+			"to": [ 9.4077, 3.5318, 7.5189 ],
+			"rotationOrigin": [ 9.3955, 2.9987, 7.3314 ],
+			"rotationX": -2.0E-4,
+			"rotationY": -96.0462,
+			"rotationZ": 144.271,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.002",
+			"from": [ 8.9919, 3.0799, 7.3625 ],
+			"to": [ 9.0163, 3.6208, 7.7374 ],
+			"rotationOrigin": [ 9.0041, 3.3503, 7.5499 ],
+			"rotationX": -2.0E-4,
+			"rotationY": -96.0463,
+			"rotationZ": 144.271,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.003",
+			"from": [ 9.7108, 3.0799, 7.4386 ],
+			"to": [ 9.7352, 3.6208, 7.8136 ],
+			"rotationOrigin": [ 9.723, 3.3503, 7.6261 ],
+			"rotationX": -2.0E-4,
+			"rotationY": -96.0463,
+			"rotationZ": 144.271,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.004",
+			"from": [ 9.8391, 3.0799, 6.2272 ],
+			"to": [ 9.8635, 3.6208, 6.6021 ],
+			"rotationOrigin": [ 9.8513, 3.3503, 6.4147 ],
+			"rotationX": 0.0,
+			"rotationY": 83.9539,
+			"rotationZ": -35.7288,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.005",
+			"from": [ 9.1202, 3.0799, 6.151 ],
+			"to": [ 9.1446, 3.6208, 6.526 ],
+			"rotationOrigin": [ 9.1324, 3.3503, 6.3385 ],
+			"rotationX": 0.0,
+			"rotationY": 83.9539,
+			"rotationZ": -35.7288,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.006",
+			"from": [ 9.4572, 2.4656, 6.4467 ],
+			"to": [ 9.4816, 3.5318, 6.8216 ],
+			"rotationOrigin": [ 9.4694, 2.9987, 6.6342 ],
+			"rotationX": 0.0,
+			"rotationY": 83.9539,
+			"rotationZ": -35.7288,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.007",
+			"from": [ 9.072, 2.4656, 6.7328 ],
+			"to": [ 9.0964, 3.5318, 7.1078 ],
+			"rotationOrigin": [ 9.0842, 2.9987, 6.9203 ],
+			"rotationX": 0.0,
+			"rotationY": 170.3065,
+			"rotationZ": -35.7285,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.008",
+			"from": [ 8.7555, 3.0799, 7.0503 ],
+			"to": [ 8.7799, 3.6208, 7.4253 ],
+			"rotationOrigin": [ 8.7677, 3.3503, 7.2378 ],
+			"rotationX": 0.0,
+			"rotationY": 170.3065,
+			"rotationZ": -35.7285,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.009",
+			"from": [ 8.8772, 3.0799, 6.3377 ],
+			"to": [ 8.9016, 3.6208, 6.7127 ],
+			"rotationOrigin": [ 8.8894, 3.3503, 6.5252 ],
+			"rotationX": 0.0,
+			"rotationY": 170.3065,
+			"rotationZ": -35.7285,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.010",
+			"from": [ 10.0781, 3.0799, 6.5428 ],
+			"to": [ 10.1025, 3.6208, 6.9178 ],
+			"rotationOrigin": [ 10.0903, 3.3503, 6.7303 ],
+			"rotationX": 0.0,
+			"rotationY": -9.6935,
+			"rotationZ": 144.2715,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.011",
+			"from": [ 9.9563, 3.0799, 7.2554 ],
+			"to": [ 9.9807, 3.6208, 7.6304 ],
+			"rotationOrigin": [ 9.9685, 3.3503, 7.4429 ],
+			"rotationX": 0.0,
+			"rotationY": -9.6935,
+			"rotationZ": 144.2715,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.012",
+			"from": [ 9.7632, 2.4656, 6.8509 ],
+			"to": [ 9.7876, 3.5318, 7.2258 ],
+			"rotationOrigin": [ 9.7754, 2.9987, 7.0383 ],
+			"rotationX": 0.0,
+			"rotationY": -9.6935,
+			"rotationZ": 144.2716,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.032",
+			"from": [ 8.6543, 1.8149, 6.2295 ],
+			"to": [ 10.1539, 2.4616, 7.7292 ],
+			"rotationOrigin": [ 9.4041, 2.1383, 6.9793 ],
+			"rotationY": -180.0,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.034",
+			"from": [ 8.544, -0.0456, 6.1193 ],
+			"to": [ 10.2642, 2.236, 7.8394 ],
+			"rotationOrigin": [ 9.4041, 1.0952, 6.9793 ],
+			"rotationY": -180.0,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.045",
+			"from": [ 8.9323, 2.896, 6.5082 ],
+			"to": [ 9.8759, 3.0518, 7.4518 ],
+			"rotationOrigin": [ 9.4041, 2.9739, 6.98 ],
+			"rotationY": -180.0,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.084",
+			"from": [ 9.0859, 1.8575, 5.5346 ],
+			"to": [ 9.1546, 1.9262, 5.7962 ],
+			"rotationOrigin": [ 9.1202, 1.8918, 5.6654 ],
+			"rotationX": 113.4967,
+			"rotationY": 0.696,
+			"rotationZ": -1.0688,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.009",
+			"from": [ 9.0126, 2.6113, 6.5885 ],
+			"to": [ 9.7956, 2.7475, 7.3715 ],
+			"rotationOrigin": [ 9.4041, 2.6794, 6.98 ],
+			"rotationY": -177.2218,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [ 9.2526, 2.6565, 6.2434 ],
+			"to": [ 9.5486, 2.9525, 6.5393 ],
+			"rotationOrigin": [ 9.4006, 2.8045, 6.3914 ],
+			"rotationX": 23.2043,
+			"rotationY": 0.0,
+			"rotationZ": 0.0,
+			"faces": {
+				"north": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.002",
+			"from": [ 9.0864, 2.2501, 5.7034 ],
+			"to": [ 9.1832, 2.347, 6.0724 ],
+			"rotationOrigin": [ 9.1348, 2.2986, 5.8879 ],
+			"rotationX": -56.9408,
+			"rotationY": 2.8483,
+			"rotationZ": 17.7408,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube.001",
+			"from": [ 9.0248, 1.9937, 5.6677 ],
+			"to": [ 9.2296, 2.1986, 5.8726 ],
+			"rotationOrigin": [ 9.1272, 2.0962, 5.7701 ],
+			"rotationX": 120.7582,
+			"rotationY": 2.2581,
+			"rotationZ": 16.6639,
+			"faces": {
+				"north": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube.002",
+			"from": [ 9.0605, 2.3812, 5.9357 ],
+			"to": [ 9.2654, 2.586, 6.1406 ],
+			"rotationOrigin": [ 9.1629, 2.4836, 6.0382 ],
+			"rotationX": 56.8646,
+			"rotationY": 14.2476,
+			"rotationZ": -12.9367,
+			"faces": {
+				"north": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.005",
+			"from": [ 9.2031, 2.5698, 6.0198 ],
+			"to": [ 9.3, 2.6666, 6.3888 ],
+			"rotationOrigin": [ 9.2516, 2.6182, 6.2043 ],
+			"rotationX": -31.8386,
+			"rotationY": 24.2721,
+			"rotationZ": 3.0357,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube.003",
+			"from": [ 9.5294, 2.3601, 5.9774 ],
+			"to": [ 9.7342, 2.565, 6.1823 ],
+			"rotationOrigin": [ 9.6318, 2.4625, 6.0799 ],
+			"rotationX": -123.1354,
+			"rotationY": 14.2476,
+			"rotationZ": -12.9367,
+			"faces": {
+				"north": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube.004",
+			"from": [ 9.5651, 1.9727, 5.7094 ],
+			"to": [ 9.77, 2.1775, 5.9143 ],
+			"rotationOrigin": [ 9.6676, 2.0751, 5.8119 ],
+			"rotationX": -59.2419,
+			"rotationY": 2.2581,
+			"rotationZ": 16.664,
+			"faces": {
+				"north": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#wood", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.006",
+			"from": [ 9.6402, 1.8364, 5.5763 ],
+			"to": [ 9.7089, 1.9051, 5.8379 ],
+			"rotationOrigin": [ 9.6745, 1.8708, 5.7071 ],
+			"rotationX": -66.5033,
+			"rotationY": 0.696,
+			"rotationZ": -1.0688,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.012",
+			"from": [ 9.4947, 2.5487, 6.0615 ],
+			"to": [ 9.5916, 2.6456, 6.4305 ],
+			"rotationOrigin": [ 9.5432, 2.5971, 6.246 ],
+			"rotationX": 148.1614,
+			"rotationY": 24.2721,
+			"rotationZ": 3.0357,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.013",
+			"from": [ 9.6115, 2.2291, 5.7451 ],
+			"to": [ 9.7084, 2.3259, 6.1141 ],
+			"rotationOrigin": [ 9.6599, 2.2775, 5.9296 ],
+			"rotationX": 123.0591,
+			"rotationY": 2.8483,
+			"rotationZ": 17.7408,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.003",
+			"from": [ 8.9783, 2.7516, 6.5542 ],
+			"to": [ 9.8299, 2.8997, 7.4057 ],
+			"rotationOrigin": [ 9.4041, 2.8257, 6.98 ],
+			"rotationX": 1.0243,
+			"rotationY": -177.7628,
+			"rotationZ": -1.4836,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.062",
+			"from": [ 9.1517, 2.8798, 6.1576 ],
+			"to": [ 9.2505, 2.9785, 6.674 ],
+			"rotationOrigin": [ 9.2011, 2.9291, 6.4158 ],
+			"rotationX": 98.8564,
+			"rotationY": 62.7825,
+			"rotationZ": -89.7456,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.010",
+			"from": [ 9.5677, 2.6882, 6.1278 ],
+			"to": [ 9.6664, 2.7869, 6.6442 ],
+			"rotationOrigin": [ 9.617, 2.7375, 6.386 ],
+			"rotationX": 98.8564,
+			"rotationY": 70.1319,
+			"rotationZ": 90.2544,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.008",
+			"from": [ 9.8373, 2.8019, 6.1539 ],
+			"to": [ 9.9361, 2.9006, 6.6509 ],
+			"rotationOrigin": [ 9.8867, 2.8513, 6.4024 ],
+			"rotationX": 98.8564,
+			"rotationY": 0.9923,
+			"rotationZ": 90.2544,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.007",
+			"from": [ 9.5808, 2.8869, 6.1587 ],
+			"to": [ 9.6795, 2.9856, 6.6751 ],
+			"rotationOrigin": [ 9.6301, 2.9362, 6.4169 ],
+			"rotationX": -81.1437,
+			"rotationY": 62.7825,
+			"rotationZ": -89.7456,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.004",
+			"from": [ 8.8952, 2.7948, 6.1528 ],
+			"to": [ 8.9939, 2.8935, 6.6498 ],
+			"rotationOrigin": [ 8.9445, 2.8442, 6.4013 ],
+			"rotationX": -81.1436,
+			"rotationY": 0.9923,
+			"rotationZ": 90.2543,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "cord.001",
+			"from": [ 9.1648, 2.6811, 6.1267 ],
+			"to": [ 9.2636, 2.7798, 6.6431 ],
+			"rotationOrigin": [ 9.2142, 2.7304, 6.3849 ],
+			"rotationX": -81.1437,
+			"rotationY": 70.1319,
+			"rotationZ": 90.2545,
+			"faces": {
+				"north": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#rope", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "linen.013",
+			"from": [ 8.6502, -0.1647, 6.2255 ],
+			"to": [ 10.1579, 0.4705, 7.7332 ],
+			"rotationOrigin": [ 9.4041, 0.1529, 6.9793 ],
+			"rotationY": -180.0,
+			"faces": {
+				"north": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"east": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"south": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"west": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"up": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false },
+				"down": { "texture": "#linen", "uv": [ 0.0, 0.0, 4.0, 4.0 ], "autoUv": false }
+			}
+		}
+	]}

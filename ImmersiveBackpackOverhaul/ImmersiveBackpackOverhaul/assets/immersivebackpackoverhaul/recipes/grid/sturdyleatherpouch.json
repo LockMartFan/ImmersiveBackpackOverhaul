@@ -1,8 +1,9 @@
 {
-  "ingredientPattern": "LLL,L_L,L_L",
+  "ingredientPattern": "LLL,L_L,_N_",
   "requiresTrait": "clothier",
   "ingredients": {
-    "L": { "type": "item", "code": "game:leather-*-plain" }
+    "L": { "type": "item", "code": "game:leather-*-plain" },
+    "N": { "type": "item", "code": "game:metalnailsandstrips-tinbronze" }
   },
   "width": 3,
   "height": 3,

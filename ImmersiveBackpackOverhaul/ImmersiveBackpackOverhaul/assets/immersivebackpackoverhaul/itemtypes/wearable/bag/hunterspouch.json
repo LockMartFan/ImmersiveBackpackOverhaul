@@ -37,10 +37,20 @@
 		"origin": { x: 0, y: 0, z: 0 },
 		"scale": 0.67
 	},
+    "groundTransform": {
+	"translation": { x: 0, y: 0, z: 0 },
+	"rotation": { x: 90, y: 0, z: 0 },
+	"origin": { x: 0.5, y: 0.5, z: 0.5299 },
+	"scale": 3.65
+	},
   "attributes": {
-    "iboBagTier": 1,
+    "iboBagSize": "bagsmall",
+      "groundStorageTransform": {
+      "rotation": { x: 0, y: -180, z: 0 },
+      "origin": { x: 0.595, y: 0, z: 0.45 }
+    },
     "backpack": {
-      "quantitySlots": 3
+      "quantitySlots": 2
     }
   }
 }

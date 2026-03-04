@@ -1,8 +1,8 @@
 {
-  "ingredientPattern": "LLL,L_L,_T_",
+  "ingredientPattern": "_L_,L_L,_T_",
   "ingredients": {
     "L": { "type": "item", "code": "game:leather-*-plain" },
-    "T": { "type": "item", "code": "game:flaxtwine" }
+    "T": { "type": "item", "code": "game:metalnailsandstrips-tinbronze" }
   },
   "width": 3,
   "height": 3,

@@ -24,6 +24,7 @@
       "name": "HeldBag"
     }
   ],
+ "storageFlags": 2,
  "guiTransform": {
     "translation": { x: 0, y: 0, z: 0 },
     "rotation": { x: -22, y: -140, z: -180 },
@@ -36,12 +37,23 @@
     "origin": { x: 0, y: 0, z: 0 },
     "scale": 1.06
   },
+    "groundTransform": {
+	"translation": { x: 0, y: 0, z: 0 },
+	"rotation": { x: 90, y: 0, z: 0 },
+	"origin": { x: 0.5, y: 0.5, z: 0.5299 },
+	"scale": 4
+	},
   "attributes": {
-    "iboBagTier": 1,
+    "iboBagSize": "bagsmall",
+      "groundStorageTransform": {
+      "rotation": { x: 0, y: 180, z: 0 },
+      "origin": { x: 0.555, y: 0, z: 0.45 },
+      "scale": 1.35
+    },
     "backpack": {
-      "quantitySlots": 3,
-      "storageFlags": 64,
-      "slotBgColor": "#c2ffe8"
+      "quantitySlots": 4,
+      "storageFlags": 128,
+      "slotBgColor": "#edc009"
     }
   }
 }

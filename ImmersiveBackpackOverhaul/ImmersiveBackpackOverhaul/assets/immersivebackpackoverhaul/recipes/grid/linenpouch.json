@@ -1,5 +1,5 @@
 {
-  "ingredientPattern": "LLL,L_L,_T_",
+  "ingredientPattern": "_L_,L_L,_T_",
   "ingredients": {
     "L": { "type": "item", "code": "game:cloth-plain" },
     "T": { "type": "item", "code": "game:flaxtwine" }

@@ -1,8 +1,8 @@
 {
-  "ingredientPattern": "HHH,H_H,_T_",
+  "ingredientPattern": "_H_,H_H,_F_",
   "ingredients": {
     "H": { "type": "item", "code": "game:hide-raw-small" },
-    "T": { "type": "item", "code": "game:flaxtwine" }
+    "F": { "type": "item", "code": "game:flaxfibers" }
   },
   "width": 3,
   "height": 3,

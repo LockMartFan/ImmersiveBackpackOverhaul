@@ -38,7 +38,7 @@
     "file": "ithaniabackpacks:itemtypes/wearable/bag/leather-backpack.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
-    "value": 22,
+    "value": 16,
     "dependsOn": [
       {
         "modid": "ithaniabackpacks"
@@ -49,7 +49,7 @@
     "file": "ithaniabackpacks:itemtypes/wearable/bag/backpack.json",
     "op": "replace",
     "path": "/attributes/backpack/quantitySlots",
-    "value": 26,
+    "value": 20,
     "dependsOn": [
       {
         "modid": "ithaniabackpacks"

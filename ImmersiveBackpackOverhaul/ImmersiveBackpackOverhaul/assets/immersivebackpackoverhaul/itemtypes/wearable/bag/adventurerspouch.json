@@ -50,7 +50,7 @@
       "origin": { x: 0.595, y: 0, z: 0.45 }
     },
     "backpack": {
-      "quantitySlots": 5
+      "quantitySlots": 4
     }
   }
 }

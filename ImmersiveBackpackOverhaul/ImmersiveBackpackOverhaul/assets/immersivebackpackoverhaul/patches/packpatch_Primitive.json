@@ -25,7 +25,7 @@
     "file": "backracks:itemtypes/basketbackrack-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 13,
+    "value": 14,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"
@@ -36,7 +36,7 @@
     "file": "backracks:itemtypes/basketbackrackhunter-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 23,
+    "value": 24,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"
@@ -47,7 +47,7 @@
     "file": "backracks:itemtypes/claybackrack-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 23,
+    "value": 24,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"
@@ -58,7 +58,7 @@
     "file": "backracks:itemtypes/foragerbackrack-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 23,
+    "value": 24,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"
@@ -80,7 +80,7 @@
     "file": "backracks:itemtypes/firewoodbackrack-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 15,
+    "value": 24,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"
@@ -91,7 +91,7 @@
     "file": "backracks:itemtypes/logbackrack-normal.json",
     "op": "replace",
     "path": "/attributes/backpackByType/*-normal/quantitySlots",
-    "value": 15,
+    "value": 24,
     "dependsOn": [
       {
         "modid": "primitivebackpacks"

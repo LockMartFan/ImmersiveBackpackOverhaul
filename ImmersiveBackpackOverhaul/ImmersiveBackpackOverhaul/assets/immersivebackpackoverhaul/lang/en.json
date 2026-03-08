@@ -4,6 +4,9 @@
   "item-coinpurse": "Coin purse",
   "item-simpleleatherpouch": "Leather pouch",
   "item-hunterspouch": "Hunter's pouch",
-  "item-sturdyleatherpouch": "Sturdy Leather pouch",
-  "item-adventurerspouch": "Adventurer's pouch"
+  "item-sturdyleatherpouch": "Sturdy leather pouch",
+  "item-adventurerspouch": "Adventurer's pouch",
+  "introduction-title": "Wearable Container Slot Restrictions",
+  "introduction-text": "The four wearable container slots will reject bags based on their type. The first and second slot will accept only pouches while the the third slot accepts pouches, satchels and holdable bags. The fourth slot will accept any wearable container item.
+ Currently, the pouch type bags are: Coin purse, Reed pouch, Linen pouch, Leather pouch, Hunter's pouch, Sturdy leather pouch and the Adventurer's pouch."
 }

@@ -1,5 +1,6 @@
 {
   "ingredientPattern": "L_L,LBL,_T_",
+  "requiresTrait": "resourceful",
   "ingredients": {
     "L": { "type": "item", "code": "game:leather-*-plain" },
     "B": { "type": "item", "code": "game:bone" },

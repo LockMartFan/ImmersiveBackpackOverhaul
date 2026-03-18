@@ -1,7 +1,11 @@
 {
   "code": "adventurerspouch",
   "maxstacksize": 1,
-  "creativeinventory": { "general": [ "*" ] },
+  "creativeinventory": {
+    "general": [
+      "*"
+    ]
+  },
   "shape": {
     "base": "immersivebackpackoverhaul:item/pouch/accesoriedsturdyleatherpouch"
   },
@@ -24,30 +28,74 @@
       "name": "HeldBag"
     }
   ],
-  	"guiTransform": {
-    "translation": { x: 0, y: 0, z: 0 },
-    "rotation": { x: -10, y: -160, z: -180 },
-    "origin": { x: 0.73, y: 0.19, z: 0.5 },
+  "guiTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": -10,
+      "y": -160,
+      "z": -180
+    },
+    "origin": {
+      "x": 0.73,
+      "y": 0.19,
+      "z": 0.5
+    },
     "scale": 3.27
-	},
-	"tpHandTransform": {
-    "translation": { x: -0.55, y: -0.2, z: 0.75 },
-    "rotation": { x: -18, y: -83, z: 18 },
-    "origin": { x: 0, y: 0, z: 0 },
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -0.55,
+      "y": -0.2,
+      "z": 0.75
+    },
+    "rotation": {
+      "x": -18,
+      "y": -83,
+      "z": 18
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "scale": 0.49
-	},
-	"groundTransform": {
-	"translation": { x: 0, y: 0, z: 0 },
-	"rotation": { x: 90, y: 0, z: 0 },
-	"origin": { x: 0.5, y: 0.5, z: 0.5299 },
-	"scale": 3.65
-	},
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 90,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 3.65
+  },
   "storageFlags": 2,
   "attributes": {
     "iboBagSize": "bagsmall",
-      "groundStorageTransform": {
-      "rotation": { x: 0, y: -180, z: 0 },
-      "origin": { x: 0.595, y: 0, z: 0.45 }
+    "groundStorageTransform": {
+      "rotation": {
+        "x": 0,
+        "y": -180,
+        "z": 0
+      },
+      "origin": {
+        "x": 0.595,
+        "y": 0,
+        "z": 0.45
+      }
     },
     "backpack": {
       "quantitySlots": 4

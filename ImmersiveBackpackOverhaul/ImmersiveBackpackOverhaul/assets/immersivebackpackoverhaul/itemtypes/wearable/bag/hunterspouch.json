@@ -1,7 +1,11 @@
 {
   "code": "hunterspouch",
   "maxstacksize": 1,
-  "creativeinventory": { "general": [ "*" ] },
+  "creativeinventory": {
+    "general": [
+      "*"
+    ]
+  },
   "shape": {
     "base": "immersivebackpackoverhaul:item/pouch/leatherpouch"
   },
@@ -26,28 +30,72 @@
   ],
   "storageFlags": 2,
   "guiTransform": {
-    "translation": { x: 0, y: 0, z: 0 },
-    "rotation": { x: -16, y: -163, z: -180 },
-    "origin": { x: 0.71, y: 0.25, z: 0.5 },
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": -16,
+      "y": -163,
+      "z": -180
+    },
+    "origin": {
+      "x": 0.71,
+      "y": 0.25,
+      "z": 0.5
+    },
     "scale": 5.18
-},
-	"tpHandTransform": {
-		"translation": { x: -0.5, y: -0.3, z: 0.75 },
-		"rotation": { x: -18, y: -83, z: 18 },
-		"origin": { x: 0, y: 0, z: 0 },
-		"scale": 0.67
-	},
-    "groundTransform": {
-	"translation": { x: 0, y: 0, z: 0 },
-	"rotation": { x: 90, y: 0, z: 0 },
-	"origin": { x: 0.5, y: 0.5, z: 0.5299 },
-	"scale": 3.65
-	},
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -0.5,
+      "y": -0.3,
+      "z": 0.75
+    },
+    "rotation": {
+      "x": -18,
+      "y": -83,
+      "z": 18
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "scale": 0.67
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 90,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5299
+    },
+    "scale": 3.65
+  },
   "attributes": {
     "iboBagSize": "bagsmall",
-      "groundStorageTransform": {
-      "rotation": { x: 0, y: -180, z: 0 },
-      "origin": { x: 0.595, y: 0, z: 0.45 }
+    "groundStorageTransform": {
+      "rotation": {
+        "x": 0,
+        "y": -180,
+        "z": 0
+      },
+      "origin": {
+        "x": 0.595,
+        "y": 0,
+        "z": 0.45
+      }
     },
     "backpack": {
       "quantitySlots": 2
